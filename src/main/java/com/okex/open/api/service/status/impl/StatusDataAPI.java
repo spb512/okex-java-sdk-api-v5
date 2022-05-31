@@ -7,7 +7,7 @@ import retrofit2.http.Query;
 
 public interface StatusDataAPI {
 
-    //Status
-    @GET("/api/v5/system/status")
-    Call<JSONObject> getStatus(@Query("state") String state);
+	// Status
+	@GET("/api/v5/system/status")
+	Call<JSONObject> getStatus(@Query("state") String state);
 }

@@ -8,40 +8,40 @@ import java.util.List;
  */
 public class CursorPager<T> {
 
-    private List<T> data;
-    private String before;
-    private String after;
-    private int limit;
+	private List<T> data;
+	private String before;
+	private String after;
+	private int limit;
 
-    public List<T> getData() {
-        return data;
-    }
+	public List<T> getData() {
+		return data;
+	}
 
-    public void setData(List<T> data) {
-        this.data = data;
-    }
+	public void setData(List<T> data) {
+		this.data = data;
+	}
 
-    public String getBefore() {
-        return before;
-    }
+	public String getBefore() {
+		return before;
+	}
 
-    public void setBefore(String before) {
-        this.before = before;
-    }
+	public void setBefore(String before) {
+		this.before = before;
+	}
 
-    public String getAfter() {
-        return after;
-    }
+	public String getAfter() {
+		return after;
+	}
 
-    public void setAfter(String after) {
-        this.after = after;
-    }
+	public void setAfter(String after) {
+		this.after = after;
+	}
 
-    public int getLimit() {
-        return limit;
-    }
+	public int getLimit() {
+		return limit;
+	}
 
-    public void setLimit(int limit) {
-        this.limit = limit;
-    }
+	public void setLimit(int limit) {
+		this.limit = limit;
+	}
 }

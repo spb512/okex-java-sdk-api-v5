@@ -5,149 +5,146 @@ import com.okex.open.api.enums.I18nEnum;
 
 public class APIConfiguration {
 
-    /**
-     * The user's api key provided by OKEx.
-     */
-    private String apiKey;
-    /**
-     * The user's secret key provided by OKEx. The secret key used to sign your request data.
-     */
-    private String secretKey;
-    /**
-     * The Passphrase will be provided by you to further secure your API access.
-     */
-    private String passphrase;
-    /**
-     * Rest api endpoint url.
-     */
-    private String endpoint;
+	/**
+	 * The user's api key provided by OKEx.
+	 */
+	private String apiKey;
+	/**
+	 * The user's secret key provided by OKEx. The secret key used to sign your
+	 * request data.
+	 */
+	private String secretKey;
+	/**
+	 * The Passphrase will be provided by you to further secure your API access.
+	 */
+	private String passphrase;
+	/**
+	 * Rest api endpoint url.
+	 */
+	private String endpoint;
 
+	/**
+	 * Host connection timeout.
+	 */
+	private long connectTimeout;
+	/**
+	 * The host reads the information timeout.
+	 */
+	private long readTimeout;
+	/**
+	 * The host writes the information timeout.
+	 */
+	private long writeTimeout;
+	/**
+	 * Failure reconnection, default true.
+	 */
+	private boolean retryOnConnectionFailure;
 
+	/**
+	 * The print api information.
+	 */
+	private boolean print;
 
+	/**
+	 * internationalization {@link I18nEnum}
+	 */
+	private I18nEnum i18n;
 
+	public APIConfiguration() {
+		this(null);
+	}
 
-    /**
-     * Host connection timeout.
-     */
-    private long connectTimeout;
-    /**
-     * The host reads the information timeout.
-     */
-    private long readTimeout;
-    /**
-     * The host writes the information timeout.
-     */
-    private long writeTimeout;
-    /**
-     * Failure reconnection, default true.
-     */
-    private boolean retryOnConnectionFailure;
+	public APIConfiguration(String endpoint) {
+		super();
+		this.apiKey = null;
+		this.secretKey = null;
+		this.passphrase = null;
+		this.endpoint = endpoint;
+		this.connectTimeout = APIConstants.TIMEOUT;
+		this.readTimeout = APIConstants.TIMEOUT;
+		this.writeTimeout = APIConstants.TIMEOUT;
+		this.retryOnConnectionFailure = true;
+		this.print = false;
+		this.i18n = I18nEnum.ENGLISH;
+	}
 
-    /**
-     * The print api information.
-     */
-    private boolean print;
+	public String getApiKey() {
+		return apiKey;
+	}
 
-    /**
-     * internationalization  {@link I18nEnum}
-     */
-    private I18nEnum i18n;
+	public void setApiKey(String apiKey) {
+		this.apiKey = apiKey;
+	}
 
-    public APIConfiguration() {
-        this(null);
-    }
+	public String getSecretKey() {
+		return secretKey;
+	}
 
-    public APIConfiguration(String endpoint) {
-        super();
-        this.apiKey = null;
-        this.secretKey = null;
-        this.passphrase = null;
-        this.endpoint = endpoint;
-        this.connectTimeout = APIConstants.TIMEOUT;
-        this.readTimeout = APIConstants.TIMEOUT;
-        this.writeTimeout = APIConstants.TIMEOUT;
-        this.retryOnConnectionFailure = true;
-        this.print = false;
-        this.i18n = I18nEnum.ENGLISH;
-    }
+	public void setSecretKey(String secretKey) {
+		this.secretKey = secretKey;
+	}
 
-    public String getApiKey() {
-        return apiKey;
-    }
+	public String getPassphrase() {
+		return passphrase;
+	}
 
-    public void setApiKey(String apiKey) {
-        this.apiKey = apiKey;
-    }
+	public void setPassphrase(String passphrase) {
+		this.passphrase = passphrase;
+	}
 
-    public String getSecretKey() {
-        return secretKey;
-    }
+	public String getEndpoint() {
+		return endpoint;
+	}
 
-    public void setSecretKey(String secretKey) {
-        this.secretKey = secretKey;
-    }
+	public void setEndpoint(String endpoint) {
+		this.endpoint = endpoint;
+	}
 
-    public String getPassphrase() {
-        return passphrase;
-    }
+	public long getConnectTimeout() {
+		return connectTimeout;
+	}
 
-    public void setPassphrase(String passphrase) {
-        this.passphrase = passphrase;
-    }
+	public void setConnectTimeout(long connectTimeout) {
+		this.connectTimeout = connectTimeout;
+	}
 
-    public String getEndpoint() {
-        return endpoint;
-    }
+	public long getReadTimeout() {
+		return readTimeout;
+	}
 
-    public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
-    }
+	public void setReadTimeout(long readTimeout) {
+		this.readTimeout = readTimeout;
+	}
 
-    public long getConnectTimeout() {
-        return connectTimeout;
-    }
+	public long getWriteTimeout() {
+		return writeTimeout;
+	}
 
-    public void setConnectTimeout(long connectTimeout) {
-        this.connectTimeout = connectTimeout;
-    }
+	public void setWriteTimeout(long writeTimeout) {
+		this.writeTimeout = writeTimeout;
+	}
 
-    public long getReadTimeout() {
-        return readTimeout;
-    }
+	public boolean isRetryOnConnectionFailure() {
+		return retryOnConnectionFailure;
+	}
 
-    public void setReadTimeout(long readTimeout) {
-        this.readTimeout = readTimeout;
-    }
+	public void setRetryOnConnectionFailure(boolean retryOnConnectionFailure) {
+		this.retryOnConnectionFailure = retryOnConnectionFailure;
+	}
 
-    public long getWriteTimeout() {
-        return writeTimeout;
-    }
+	public boolean isPrint() {
+		return print;
+	}
 
-    public void setWriteTimeout(long writeTimeout) {
-        this.writeTimeout = writeTimeout;
-    }
+	public void setPrint(boolean print) {
+		this.print = print;
+	}
 
-    public boolean isRetryOnConnectionFailure() {
-        return retryOnConnectionFailure;
-    }
+	public I18nEnum getI18n() {
+		return i18n;
+	}
 
-    public void setRetryOnConnectionFailure(boolean retryOnConnectionFailure) {
-        this.retryOnConnectionFailure = retryOnConnectionFailure;
-    }
-
-    public boolean isPrint() {
-        return print;
-    }
-
-    public void setPrint(boolean print) {
-        this.print = print;
-    }
-
-    public I18nEnum getI18n() {
-        return i18n;
-    }
-
-    public void setI18n(I18nEnum i18n) {
-        this.i18n = i18n;
-    }
+	public void setI18n(I18nEnum i18n) {
+		this.i18n = i18n;
+	}
 }

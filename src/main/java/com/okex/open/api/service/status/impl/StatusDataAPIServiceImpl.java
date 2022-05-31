@@ -7,17 +7,17 @@ import com.okex.open.api.service.status.StatusDataAPIService;
 
 public class StatusDataAPIServiceImpl implements StatusDataAPIService {
 
-    private final APIClient client;
-    private final StatusDataAPI statusDataAPI;
+	private final APIClient client;
+	private final StatusDataAPI statusDataAPI;
 
-    public StatusDataAPIServiceImpl(final APIConfiguration config) {
-        this.client = new APIClient(config);
-        this.statusDataAPI = this.client.createService(StatusDataAPI.class);
-    }
+	public StatusDataAPIServiceImpl(final APIConfiguration config) {
+		this.client = new APIClient(config);
+		this.statusDataAPI = this.client.createService(StatusDataAPI.class);
+	}
 
-    //status
-    @Override
-    public JSONObject getStatus(String state) {
-        return this.client.executeSync(this.statusDataAPI.getStatus(state));
-    }
+	// status
+	@Override
+	public JSONObject getStatus(String state) {
+		return this.client.executeSync(this.statusDataAPI.getStatus(state));
+	}
 }

@@ -6,14 +6,15 @@ package com.okex.open.api.enums;
  */
 public enum FuturesDirectionEnum {
 
-    LONG("long"), SHORT("short");
-    private String direction;
+	LONG("long"), SHORT("short");
 
-    FuturesDirectionEnum(String direction) {
-        this.direction = direction;
-    }
+	private String direction;
 
-    public String getDirection() {
-        return direction;
-    }
+	FuturesDirectionEnum(String direction) {
+		this.direction = direction;
+	}
+
+	public String getDirection() {
+		return direction;
+	}
 }

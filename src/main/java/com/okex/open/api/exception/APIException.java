@@ -2,31 +2,34 @@ package com.okex.open.api.exception;
 
 public class APIException extends RuntimeException {
 
-    private int code;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int code;
 
-    public APIException(String message) {
-        super(message);
-    }
+	public APIException(String message) {
+		super(message);
+	}
 
-    public APIException(int code, String message) {
-        super(message);
-        this.code = code;
-    }
+	public APIException(int code, String message) {
+		super(message);
+		this.code = code;
+	}
 
+	public APIException(Throwable cause) {
+		super(cause);
+	}
 
-    public APIException(Throwable cause) {
-        super(cause);
-    }
+	public APIException(String message, Throwable cause) {
+		super(message, cause);
+	}
 
-    public APIException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    @Override
-    public String getMessage() {
-        if (this.code != 0) {
-            return this.code + " : " + super.getMessage();
-        }
-        return super.getMessage();
-    }
+	@Override
+	public String getMessage() {
+		if (this.code != 0) {
+			return this.code + " : " + super.getMessage();
+		}
+		return super.getMessage();
+	}
 }

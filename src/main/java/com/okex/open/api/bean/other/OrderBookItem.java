@@ -1,9 +1,7 @@
 package com.okex.open.api.bean.other;
 
-import java.math.BigDecimal;
-
 public interface OrderBookItem<T> {
-    String getPrice();
+	String getPrice();
 
-    T getSize();
+	T getSize();
 }
