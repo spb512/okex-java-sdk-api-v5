@@ -2,9 +2,25 @@ package com.okex.open.api.bean.other;
 
 import java.util.*;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午4:45:17
+ *
+ */
 public class OrderBookDiffer {
 
-	// 添加参数 order: 1正向排序 2反向排序
+	/**
+	 * 
+	 * 添加参数 order: 1正向排序 2反向排序
+	 * 
+	 * @param <T>
+	 * @param current
+	 * @param snapshot
+	 * @param comparator
+	 * @param order
+	 * @return
+	 */
 	public <T extends OrderBookItem<?>> List<T> diff(List<T> current, List<T> snapshot,
 			final Comparator<String> comparator, int order) {
 
@@ -21,10 +37,15 @@ public class OrderBookDiffer {
 				double currentPrc = Double.parseDouble(currentBookItem.getPrice());
 				double snapPrc = Double.parseDouble(snapshotBookItem.getPrice());
 				int compare = 0;
-				if ((order == 1 && snapPrc > currentPrc) || (order == 2 && snapPrc < currentPrc)) // 增>全
+				// 增>全
+				boolean bigger = (order == 1 && snapPrc > currentPrc) || (order == 2 && snapPrc < currentPrc);
+				// 增<全
+				boolean less = (order == 1 && snapPrc < currentPrc) || (order == 2 && snapPrc > currentPrc);
+				if (bigger) {
 					compare = 1;
-				else if ((order == 1 && snapPrc < currentPrc) || (order == 2 && snapPrc > currentPrc))// 增<全
+				} else if (less) {
 					compare = -1;
+				}
 
 				// 价格相等时候
 				if (compare == 0) {

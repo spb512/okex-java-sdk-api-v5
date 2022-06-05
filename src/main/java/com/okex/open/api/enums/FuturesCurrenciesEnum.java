@@ -1,8 +1,44 @@
 package com.okex.open.api.enums;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public enum FuturesCurrenciesEnum {
-
-	BTC(0), LTC(1), ETH(2), ETC(4), XRP(15), EOS(20), BCH(301), BSV(302);
+	/**
+	 * BTC
+	 */
+	BTC(0),
+	/**
+	 * LTC
+	 */
+	LTC(1),
+	/**
+	 * ETH
+	 */
+	ETH(2),
+	/**
+	 * ETC
+	 */
+	ETC(4),
+	/**
+	 * XRP
+	 */
+	XRP(15),
+	/**
+	 * EOS
+	 */
+	EOS(20),
+	/**
+	 * BHC
+	 */
+	BCH(301),
+	/**
+	 * BSV
+	 */
+	BSV(302);
 
 	private int symbol;
 

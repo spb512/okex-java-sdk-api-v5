@@ -2,7 +2,19 @@ package com.okex.open.api.bean.other;
 
 import java.util.List;
 
-//深度合并之后的类，可以通过toString方法合成深度合并之后的字符串
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午4:45:44
+ *
+ */
+/**
+ * 深度合并之后的类，可以通过toString方法合成深度合并之后的字符串
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午6:39:18
+ *
+ */
 public class SpotOrderBookDiff {
 
 	private final List<SpotOrderBookItem> asks;

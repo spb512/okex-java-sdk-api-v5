@@ -1,10 +1,16 @@
 package com.okex.open.api.utils;
 
-import com.okex.open.api.constant.APIConstants;
+import com.okex.open.api.constant.ApiConstants;
 import org.apache.commons.lang3.StringUtils;
 
 import java.text.NumberFormat;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public class NumberUtils {
 
 	/**
@@ -16,17 +22,17 @@ public class NumberUtils {
 	 */
 	public static String doubleToString(Double arg) {
 		if (arg == null) {
-			return APIConstants.DOUBLE_ZERO_STRING;
+			return ApiConstants.DOUBLE_ZERO_STRING;
 		}
 		String argStr = arg.toString();
 		int scale;
-		if (argStr.contains(APIConstants.E) || argStr.contains(APIConstants.e)) {
-			String[] argArray = argStr.toUpperCase().split(APIConstants.E);
+		if (argStr.contains(ApiConstants.CAP_E) || argStr.contains(ApiConstants.LOW_E)) {
+			String[] argArray = argStr.toUpperCase().split(ApiConstants.CAP_E);
 			int scale1 = Integer.parseInt(argArray[1]);
 			scale = scale1 < 0 ? Math.abs(scale1) : scale1;
 			String scale2 = argArray[0];
-			if (scale2.contains(APIConstants.DOT1)) {
-				String[] argDecimalsArray = scale2.split(APIConstants.DOT2);
+			if (scale2.contains(ApiConstants.DOT1)) {
+				String[] argDecimalsArray = scale2.split(ApiConstants.DOT2);
 				String decimalsAfter = argDecimalsArray[1];
 				int decimalsAfterI = Integer.parseInt(decimalsAfter);
 				if (decimalsAfterI > 0) {
@@ -34,13 +40,13 @@ public class NumberUtils {
 				}
 			}
 		} else {
-			scale = APIConstants.DEFAULT_SCALE;
+			scale = ApiConstants.DEFAULT_SCALE;
 		}
 		NumberFormat format = getNumberFormat(scale);
 		String result = format.format(arg);
-		if (StringUtils.isNotEmpty(result) && result.contains(APIConstants.DOT1)) {
-			result = result.replaceAll(APIConstants.DOUBLE_END1, APIConstants.EMPTY);
-			result = result.replaceAll(APIConstants.DOUBLE_END2, APIConstants.EMPTY);
+		if (StringUtils.isNotEmpty(result) && result.contains(ApiConstants.DOT1)) {
+			result = result.replaceAll(ApiConstants.DOUBLE_END1, ApiConstants.EMPTY);
+			result = result.replaceAll(ApiConstants.DOUBLE_END2, ApiConstants.EMPTY);
 		}
 		return result;
 	}

@@ -6,6 +6,12 @@ import java.util.List;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午4:45:35
+ *
+ */
 public class SpotOrderBook {
 
 	private List<SpotOrderBookItem> asks;
@@ -53,7 +59,12 @@ public class SpotOrderBook {
 		return true;
 	}
 
-	// 调用这个方法，that为增量的数据，this为老的数据
+	/**
+	 * 调用这个方法，that为增量的数据，this为老的数据
+	 * 
+	 * @param that
+	 * @return
+	 */
 	public SpotOrderBookDiff diff(SpotOrderBook that) {
 		System.out.println("全量数据：" + this.toString());
 		System.out.println(that.ts + "  增量数据：" + that.toString());
@@ -66,7 +77,16 @@ public class SpotOrderBook {
 		return new SpotOrderBookDiff(askDiff, bidDiff, that.ts, that.checksum);
 	}
 
-	// 深度合并，返回深度合并后的内容current为现有的数据，snapshot为快照增量的数据
+	/**
+	 * 
+	 * 深度合并，返回深度合并后的内容current为现有的数据，snapshot为快照增量的数据
+	 * 
+	 * @param current
+	 * @param snapshot
+	 * @param comparator
+	 * @param order
+	 * @return
+	 */
 	private List<SpotOrderBookItem> diff(final List<SpotOrderBookItem> current, final List<SpotOrderBookItem> snapshot,
 			final Comparator<String> comparator, int order) {
 		return differ.diff(current, snapshot, comparator, order);

@@ -1,5 +1,11 @@
 package com.okex.open.api.bean.funding.param;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午4:43:32
+ *
+ */
 public class FundsTransfer {
 	private String ccy;
 	private String amt;

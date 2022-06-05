@@ -1,5 +1,11 @@
 package com.okex.open.api.bean.trade.param;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public class CancelOrder {
 	private String instId;
 	private String ordId;

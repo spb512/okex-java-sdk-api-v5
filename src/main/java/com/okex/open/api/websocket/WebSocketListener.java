@@ -1,5 +1,11 @@
 package com.okex.open.api.websocket;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public interface WebSocketListener {
 
 	/**
@@ -41,7 +47,8 @@ public interface WebSocketListener {
 	 * Called after WebSocket#close is explicity called, or when the other end of
 	 * the WebSocket connection is closed.
 	 *
-	 * @param ws The WebSocket instance this event is occuring on.
+	 * @param ws   The WebSocket instance this event is occuring on.
+	 * @param code
 	 */
 	void onWebsocketClose(WebSocket ws, int code);
 

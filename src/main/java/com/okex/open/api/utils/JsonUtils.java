@@ -2,8 +2,8 @@ package com.okex.open.api.utils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.okex.open.api.constant.APIConstants;
-import com.okex.open.api.exception.APIException;
+import com.okex.open.api.constant.ApiConstants;
+import com.okex.open.api.exception.ApiException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -11,6 +11,12 @@ import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public class JsonUtils {
 
 	/**
@@ -24,7 +30,7 @@ public class JsonUtils {
 	 */
 	public static <T> JSONObject convertObject(T t, Class<T> tC) {
 		if (t == null) {
-			return APIConstants.NOTHING;
+			return ApiConstants.NOTHING;
 		}
 		Field[] fields = tC.getDeclaredFields();
 		JSONObject object = new JSONObject();
@@ -37,9 +43,9 @@ public class JsonUtils {
 				for (Method method : methods) {
 					if (methodName.equals(method.getName())) {
 						Object result = method.invoke(t);
-						if (APIConstants.toStringTypeArray.contains(type)) {
+						if (ApiConstants.TO_STRING_TYPE_ARRAY.contains(type)) {
 							object.put(field.getName(), toString(result));
-						} else if (APIConstants.toStringTypeDoubleArray.contains(type) && result != null) {
+						} else if (ApiConstants.TO_STRING_TYPE_DOUBLE_ARRAY.contains(type) && result != null) {
 							object.put(field.getName(), NumberUtils.doubleToString((Double) result));
 						} else {
 							object.put(field.getName(), result);
@@ -48,7 +54,7 @@ public class JsonUtils {
 				}
 			}
 		} catch (Exception e) {
-			throw new APIException("Java biz bean change JSONObject is exception.", e);
+			throw new ApiException("Java biz bean change JSONObject is exception.", e);
 		}
 		return object;
 	}
@@ -76,24 +82,24 @@ public class JsonUtils {
 
 	public static final String getMethodName(String type, String field) {
 		StringBuilder methodName = new StringBuilder();
-		if (type.equals(APIConstants.BOOLEAN)) {
-			methodName.append(APIConstants.IS);
+		if (type.equals(ApiConstants.BOOLEAN)) {
+			methodName.append(ApiConstants.IS);
 		} else {
-			methodName.append(APIConstants.get);
+			methodName.append(ApiConstants.GET);
 		}
 		return methodName.append(startUpperCase(field)).toString();
 	}
 
 	public static final String startUpperCase(String name) {
 		char[] cs = name.toCharArray();
-		if (cs[0] >= APIConstants.a && cs[0] <= APIConstants.z) {
+		if (cs[0] >= ApiConstants.A && cs[0] <= ApiConstants.Z) {
 			cs[0] -= 32;
 		}
 		return String.valueOf(cs);
 	}
 
 	public static final String toString(Object object) {
-		return object == null ? APIConstants.ZERO_STRING : object.toString();
+		return object == null ? ApiConstants.ZERO_STRING : object.toString();
 	}
 
 }

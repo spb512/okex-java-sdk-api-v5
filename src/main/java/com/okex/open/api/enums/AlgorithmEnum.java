@@ -1,8 +1,20 @@
 package com.okex.open.api.enums;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public enum AlgorithmEnum {
-
-	HMAC_SHA256("HmacSHA256"), MD5("MD5"),;
+	/**
+	 * HmacSHA256
+	 */
+	HMAC_SHA256("HmacSHA256"),
+	/**
+	 * MD5
+	 */
+	MD5("MD5"),;
 
 	private String algorithm;
 

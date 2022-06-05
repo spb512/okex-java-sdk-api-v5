@@ -2,9 +2,9 @@ package com.okex.open.api.client;
 
 import com.alibaba.fastjson.JSONObject;
 import com.okex.open.api.bean.funding.HttpResult;
-import com.okex.open.api.config.APIConfiguration;
-import com.okex.open.api.constant.APIConstants;
-import com.okex.open.api.exception.APIException;
+import com.okex.open.api.config.ApiConfiguration;
+import com.okex.open.api.constant.ApiConstants;
+import com.okex.open.api.exception.ApiException;
 import com.okex.open.api.utils.DateUtils;
 import okhttp3.*;
 import org.slf4j.Logger;
@@ -12,16 +12,22 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public class ApiHttp {
 
 	private static final Logger LOG = LoggerFactory.getLogger(ApiHttp.class);
 
 	private OkHttpClient client;
-	private APIConfiguration config;
+	private ApiConfiguration config;
 
 	static final MediaType JSON = MediaType.Companion.parse("application/json;charset=utf-8");
 
-	public ApiHttp(APIConfiguration config, OkHttpClient client) {
+	public ApiHttp(ApiConfiguration config, OkHttpClient client) {
 		this.config = config;
 		this.client = client;
 	}
@@ -59,14 +65,14 @@ public class ApiHttp {
 					.toString();
 			if (response.isSuccessful()) {
 				return bodyString;
-			} else if (APIConstants.resultStatusArray.contains(status)) {
+			} else if (ApiConstants.RESULT_STATUS_ARRAY.contains(status)) {
 				HttpResult result = com.alibaba.fastjson.JSON.parseObject(bodyString, HttpResult.class);
-				throw new APIException(result.getCode(), result.getMessage());
+				throw new ApiException(result.getCode(), result.getMessage());
 			} else {
-				throw new APIException(message);
+				throw new ApiException(message);
 			}
 		} catch (IOException e) {
-			throw new APIException("APIClient executeSync exception.", e);
+			throw new ApiException("ApiClient executeSync exception.", e);
 		}
 	}
 

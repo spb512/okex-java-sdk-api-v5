@@ -1,5 +1,11 @@
 package com.okex.open.api.bean.funding;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午4:44:49
+ *
+ */
 public class HttpResult {
 
 	private int code;
@@ -7,7 +13,7 @@ public class HttpResult {
 	private String msg;
 	private int errorCode;
 	private String errorMessage;
-	private String order_id;
+	private String orderId;
 	private Boolean result;
 
 	public int getErrorCode() {
@@ -50,12 +56,12 @@ public class HttpResult {
 		this.message = message;
 	}
 
-	public String getOrder_id() {
-		return order_id;
+	public String getOrderId() {
+		return orderId;
 	}
 
-	public void setOrder_id(String order_id) {
-		this.order_id = order_id;
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 
 	public Boolean getResult() {
@@ -69,7 +75,7 @@ public class HttpResult {
 	@Override
 	public String toString() {
 		return "HttpResult{" + "code=" + code + ", message='" + message + '\'' + ", msg='" + msg + '\'' + ", errorCode="
-				+ errorCode + ", errorMessage='" + errorMessage + '\'' + ", order_id='" + order_id + '\'' + ", result="
+				+ errorCode + ", errorMessage='" + errorMessage + '\'' + ", orderId='" + orderId + '\'' + ", result="
 				+ result + '}';
 	}
 }

@@ -5,8 +5,14 @@ package com.okex.open.api.enums;
  * @date 2019/5/7 11:29 AM
  */
 public enum FuturesDirectionEnum {
-
-	LONG("long"), SHORT("short");
+	/**
+	 * long
+	 */
+	LONG("long"),
+	/**
+	 * short
+	 */
+	SHORT("short");
 
 	private String direction;
 

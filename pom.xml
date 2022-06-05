@@ -219,8 +219,9 @@
 						</goals>
 					</execution>
 				</executions>
+				<!-- 忽略注释格式检查 -->
 				<configuration>
-					<doclint>none</doclint><!-- 忽略注释格式检查 -->
+					<doclint>none</doclint>
 				</configuration>
 			</plugin>
 			<plugin>

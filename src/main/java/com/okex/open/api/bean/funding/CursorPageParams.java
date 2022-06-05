@@ -1,5 +1,11 @@
 package com.okex.open.api.bean.funding;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午4:44:41
+ *
+ */
 public class CursorPageParams {
 	/**
 	 * Request page before (newer) this pagination id. eg: before=2, page number =

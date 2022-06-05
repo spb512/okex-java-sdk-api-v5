@@ -9,6 +9,12 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.TimeZone;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public class DateUtils {
 
 	public static String TIME_STYLE_S1 = "yyyy-MM-dd";
@@ -143,7 +149,7 @@ public class DateUtils {
 	 * convert UTC timestamp：2018-02-03T16:56:29.919Z -> object: Sun Feb 04 00:56:29
 	 * CST 2018
 	 */
-	public static Date parseUTCTime(final String utcTime) throws ParseException {
+	public static Date parseUtcTime(final String utcTime) throws ParseException {
 		if (StringUtils.isEmpty(utcTime)) {
 			return null;
 		}

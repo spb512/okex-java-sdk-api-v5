@@ -2,15 +2,21 @@ package com.okex.open.api.bean.funding.param;
 
 import com.okex.open.api.enums.FuturesTransactionTypeEnum;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午4:44:01
+ *
+ */
 public class OrdersItem {
 
 	/**
-	 * You setting order id. (optional)
+	 * You setting orderId. (optional)
 	 */
-	private String order_type;
+	private String orderType;
 	private String price;
 
-	private String client_oid;
+	private String clientOid;
 	/**
 	 * The execution type {@link FuturesTransactionTypeEnum}
 	 */
@@ -18,24 +24,12 @@ public class OrdersItem {
 	/**
 	 * The order price: Maximum 1 million
 	 */
-
-	/**
-	 * The order amount: Maximum 1 million
-	 */
 	private String size;
 	/**
 	 * Match best counter party price (BBO)? 0: No 1: Yes If yes, the 'price' field
 	 * is ignored
 	 */
-	private String match_price;
-
-	public String getOrder_type() {
-		return order_type;
-	}
-
-	public void setOrder_type(String order_type) {
-		this.order_type = order_type;
-	}
+	private String matchPrice;
 
 	public String getPrice() {
 		return price;
@@ -61,20 +55,28 @@ public class OrdersItem {
 		this.size = size;
 	}
 
-	public String getMatch_price() {
-		return match_price;
+	public String getOrderType() {
+		return orderType;
 	}
 
-	public void setMatch_price(String match_price) {
-		this.match_price = match_price;
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
 	}
 
-	public String getClient_oid() {
-		return client_oid;
+	public String getClientOid() {
+		return clientOid;
 	}
 
-	public void setClient_oid(String client_oid) {
-		this.client_oid = client_oid;
+	public void setClientOid(String clientOid) {
+		this.clientOid = clientOid;
+	}
+
+	public String getMatchPrice() {
+		return matchPrice;
+	}
+
+	public void setMatchPrice(String matchPrice) {
+		this.matchPrice = matchPrice;
 	}
 
 }

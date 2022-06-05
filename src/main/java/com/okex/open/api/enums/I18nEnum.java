@@ -1,8 +1,23 @@
 package com.okex.open.api.enums;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public enum I18nEnum {
-	ENGLISH("en_US"), SIMPLIFIED_CHINESE("zh_CN"),
-	// zh_TW || zh_HK
+	/**
+	 * 英文en_US
+	 */
+	ENGLISH("en_US"),
+	/**
+	 * 中文zh_CN
+	 */
+	SIMPLIFIED_CHINESE("zh_CN"),
+	/**
+	 * 香港或者台湾zh_TW || zh_HK
+	 */
 	TRADITIONAL_CHINESE("zh_HK"),;
 
 	private String i18n;

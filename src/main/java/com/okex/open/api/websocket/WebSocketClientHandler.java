@@ -7,6 +7,12 @@ import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.CharsetUtil;
 import java.util.zip.Inflater;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> {
 	private ChannelPromise handshakeFuture;
 	private final WebSocketClientHandshaker handshaker;
@@ -38,6 +44,7 @@ public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> 
 		}
 
 		WebSocketFrame frame = (WebSocketFrame) msg;
+		String pong = "pong";
 		if (frame instanceof PongWebSocketFrame) {
 			this.listener.onWebsocketPong(webSocketClient);
 		} else if (frame instanceof CloseWebSocketFrame) {
@@ -47,14 +54,14 @@ public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> 
 		} else if (frame instanceof BinaryWebSocketFrame) {
 			// 这里处理收到的逻辑
 			String msgStr = decode(msg);
-			if (msgStr.equals("pong")) {
+			if (pong.equals(msgStr)) {
 				this.listener.onWebsocketPong(webSocketClient);
 			} else {
 				this.listener.onTextMessage(webSocketClient, msgStr);
 			}
 		} else if (frame instanceof TextWebSocketFrame) {
 			String txt = ((TextWebSocketFrame) frame).text();
-			if (txt.equals("pong")) {
+			if (pong.equals(txt)) {
 				this.listener.onWebsocketPong(webSocketClient);
 			} else {
 				this.listener.onTextMessage(webSocketClient, txt);

@@ -1,5 +1,11 @@
 package com.okex.open.api.bean.other;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:42
+ *
+ */
 public class SpotOrderBookItem implements OrderBookItem<String> {
 	private final String price;
 	private final String size;

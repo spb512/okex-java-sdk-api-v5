@@ -1,5 +1,11 @@
 package com.okex.open.api.bean.account.param;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午4:42:17
+ *
+ */
 public class Withdraw {
 	private String amount;
 
@@ -31,9 +37,9 @@ public class Withdraw {
 
 	private String destination;
 
-	private String to_address;
+	private String toAddress;
 
-	private String trade_pwd;
+	private String tradePwd;
 
 	private String fee;
 
@@ -47,20 +53,20 @@ public class Withdraw {
 		this.currency = currency;
 	}
 
-	public String getTrade_pwd() {
-		return trade_pwd;
+	public String getToAddress() {
+		return toAddress;
 	}
 
-	public void setTrade_pwd(String trade_pwd) {
-		this.trade_pwd = trade_pwd;
+	public void setToAddress(String toAddress) {
+		this.toAddress = toAddress;
 	}
 
-	public String getTo_address() {
-		return to_address;
+	public String getTradePwd() {
+		return tradePwd;
 	}
 
-	public void setTo_address(String to_address) {
-		this.to_address = to_address;
+	public void setTradePwd(String tradePwd) {
+		this.tradePwd = tradePwd;
 	}
 
 	public String getTag() {

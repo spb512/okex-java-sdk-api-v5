@@ -32,11 +32,17 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 
+ * @author spb512
+ * @date 2022年6月5日 下午5:02:59
+ *
+ */
 public class WebSocketClient implements WebSocket {
-	private final static HashFunction crc32 = Hashing.crc32();
+	private final static HashFunction CRC32 = Hashing.crc32();
 	private Channel ch;
 	private WebSocketListener listener;
-	private String URL = "wss://okexcomreal.bafang.com:8443/ws/v3";
+	private String stringUrl = "wss://okexcomreal.bafang.com:8443/ws/v3";
 	private Timer timer = new HashedWheelTimer(Executors.defaultThreadFactory());
 
 	public WebSocketClient(WebSocketListener listener) {
@@ -44,18 +50,20 @@ public class WebSocketClient implements WebSocket {
 	}
 
 	public WebSocketClient(String url, WebSocketListener listener) {
-		URL = url;
+		stringUrl = url;
 		this.listener = listener;
 	}
 
 	private void init() {
 		try {
-			URI uri = new URI(URL);
+			URI uri = new URI(stringUrl);
 			String scheme = uri.getScheme() == null ? "ws" : uri.getScheme();
 			final String host = uri.getHost() == null ? "127.0.0.1" : uri.getHost();
 			final int port = uri.getPort();
 
-			if (!"ws".equalsIgnoreCase(scheme) && !"wss".equalsIgnoreCase(scheme)) {
+			String ws = "ws";
+			String wss = "wss";
+			if (!ws.equalsIgnoreCase(scheme) && !wss.equalsIgnoreCase(scheme)) {
 				this.listener.handleCallbackError(this, new RuntimeException("Only WS(S) is supported."));
 				return;
 			}
@@ -116,11 +124,11 @@ public class WebSocketClient implements WebSocket {
 		String str = timeStamp + "GET/users/self/verify";
 		String hash = "";
 		try {
-			Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
+			Mac sha256Hmac = Mac.getInstance("HmacSHA256");
 
-			SecretKeySpec secret_key = new SecretKeySpec(apiSecret.getBytes(), "HmacSHA256");
-			sha256_HMAC.init(secret_key);
-			hash = Base64.encodeBase64String(sha256_HMAC.doFinal(str.getBytes()));
+			SecretKeySpec secretKey = new SecretKeySpec(apiSecret.getBytes(), "HmacSHA256");
+			sha256Hmac.init(secretKey);
+			hash = Base64.encodeBase64String(sha256Hmac.doFinal(str.getBytes()));
 		} catch (Throwable t) {
 			t.printStackTrace();
 			this.listener.handleCallbackError(this, t);
@@ -155,24 +163,32 @@ public class WebSocketClient implements WebSocket {
 			JSONArray bidsArray = null;
 			JSONArray asksArray = null;
 			int checksum = 0;
-			if (obj.get("table") != null && obj.get("action") != null) {
-				JSONArray dataObj = (JSONArray) obj.get("data");
+			String table = "table";
+			String action = "action";
+			String dataStr = "data";
+			String bids = "bids";
+			String asks = "asks";
+			String checksumStr = "checksum";
+			if (obj.get(table) != null && obj.get(action) != null) {
+				JSONArray dataObj = (JSONArray) obj.get(dataStr);
 				JSONObject targetObj = (JSONObject) dataObj.get(0);
-				bidsArray = (JSONArray) targetObj.get("bids");
-				asksArray = (JSONArray) targetObj.get("asks");
-				checksum = (int) targetObj.get("checksum");
+				bidsArray = (JSONArray) targetObj.get(bids);
+				asksArray = (JSONArray) targetObj.get(asks);
+				checksum = (int) targetObj.get(checksumStr);
 
 			} else {
-				bidsArray = (JSONArray) obj.get("bids");
-				asksArray = (JSONArray) obj.get("asks");
-				checksum = (int) obj.get("checksum");
+				bidsArray = (JSONArray) obj.get(bids);
+				asksArray = (JSONArray) obj.get(asks);
+				checksum = (int) obj.get(checksumStr);
 			}
 
 			StringBuilder targetStr = new StringBuilder();
-			for (int index = 0; index < 25; index++) {
+			int number = 25;
+			for (int index = 0; index < number; index++) {
 				if (bidsArray != null && index < bidsArray.size()) {
 					JSONArray bidsObject = (JSONArray) bidsArray.get(index);
-					for (int num = 0; num < 2; num++) {
+					int num2 = 2;
+					for (int num = 0; num < num2; num++) {
 						targetStr.append(bidsObject.get(num));
 						targetStr.append(":");
 					}
@@ -180,7 +196,8 @@ public class WebSocketClient implements WebSocket {
 				}
 				if (asksArray != null && index < asksArray.size()) {
 					JSONArray asksObject = (JSONArray) asksArray.get(index);
-					for (int num = 0; num < 2; num++) {
+					int num2 = 2;
+					for (int num = 0; num < num2; num++) {
 						targetStr.append(asksObject.get(num));
 						targetStr.append(":");
 					}
@@ -194,7 +211,7 @@ public class WebSocketClient implements WebSocket {
 				strs = "";
 			}
 
-			int fianlStr = crc32.hashString(strs, StandardCharsets.UTF_8).asInt();
+			int fianlStr = CRC32.hashString(strs, StandardCharsets.UTF_8).asInt();
 			return fianlStr == checksum;
 		} catch (Exception e) {
 			this.listener.handleCallbackError(this, e);
