@@ -1,4 +1,4 @@
-package com.okex.open.api.test.ws.privately.channel;
+package com.okex.open.api.test.ws.privates.channel;
 
 import java.time.Instant;
 import java.util.ArrayList;
