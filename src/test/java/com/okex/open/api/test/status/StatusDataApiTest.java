@@ -31,7 +31,7 @@ public class StatusDataApiTest extends StatusDataApiBaseTest {
 	 */
 	@Test
 	public void testGetStatus() {
-		JSONObject result = statusDataApiService.getStatus(null);
+		JSONObject result = statusDataApiService.getStatus("completed");
 		this.toResultString(StatusDataApiTest.LOG, "result", result);
 
 	}

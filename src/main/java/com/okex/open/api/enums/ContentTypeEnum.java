@@ -10,7 +10,7 @@ public enum ContentTypeEnum {
 	/**
 	 * application/json
 	 */
-	APPLICATION_JSON("c"),
+	APPLICATION_JSON("application/json"),
 	/**
 	 * application/json; charset=UTF-8
 	 */
