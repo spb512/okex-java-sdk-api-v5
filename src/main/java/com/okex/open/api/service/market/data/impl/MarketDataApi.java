@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-interface MarketDataApi {
+public interface MarketDataApi {
 
 	/**
 	 * 获取所有产品行情信息 Get Tickers

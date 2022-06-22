@@ -68,8 +68,8 @@ public class MarketDataApiTest extends MarketDataApiBaseTest {
 	@Test
 	public void getCandlesticks() {
 
-		JSONObject result = this.marketDataApiService.getCandlesticks("BTC-USD-SWAP", "1618468839819", null, "2H",
-				"20");
+		JSONObject result = this.marketDataApiService.getCandlesticks("ETH-USDT-SWAP", null, null, "1H",
+				"12");
 		this.toResultString(MarketDataApiTest.LOG, "result", result);
 	}
 
@@ -97,7 +97,7 @@ public class MarketDataApiTest extends MarketDataApiBaseTest {
 	 */
 	@Test
 	public void getMarkPriceCandlesticks() {
-		JSONObject result = this.marketDataApiService.getMarkPriceCandlesticks("EOS-USDT", null, null, "15m", "81");
+		JSONObject result = this.marketDataApiService.getMarkPriceCandlesticks("ETH-USDT-SWAP", null, null, "1H", "7");
 		this.toResultString(MarketDataApiTest.LOG, "result", result);
 	}
 

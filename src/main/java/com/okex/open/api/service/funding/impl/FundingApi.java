@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import retrofit2.Call;
 import retrofit2.http.*;
 
-interface FundingApi {
+public interface FundingApi {
 
 	/**
 	 * 获取充值地址信息 Get Deposit Address

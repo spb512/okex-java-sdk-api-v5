@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 import java.util.List;
 
-interface TradeApi {
+public interface TradeApi {
 
 	/**
 	 * 下单 Place Order

@@ -31,7 +31,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	 */
 	@Test
 	public void getInstruments() {
-		JSONObject result = publicDataApiService.getInstruments("SPOT", null);
+		JSONObject result = publicDataApiService.getInstruments("SWAP", null);
 		toResultString(LOG, "result", result);
 
 	}

@@ -14,7 +14,7 @@ public class MarketDataApiBaseTest extends BaseTests {
 	public ApiConfiguration config() {
 		ApiConfiguration config = new ApiConfiguration();
 
-		config.setEndpoint("https://www.okex.com/");
+		config.setEndpoint("https://www.ouyicn.cloud/");
 
 		config.setApiKey("");
 		config.setSecretKey("");

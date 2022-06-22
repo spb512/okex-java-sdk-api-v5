@@ -51,7 +51,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	 */
 	@Test
 	public void getPositions() {
-		JSONObject result = this.accountApiService.getPositions("MARGIN", null, null);
+		JSONObject result = this.accountApiService.getPositions("SWAP", null, null);
 		toResultString(LOG, "result", result);
 	}
 
@@ -153,7 +153,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	 */
 	@Test
 	public void getLeverage() {
-		JSONObject result = this.accountApiService.getLeverage("BTC-USDT-210924", "cross");
+		JSONObject result = this.accountApiService.getLeverage("ETH-USDT-SWAP", "isolated");
 		toResultString(LOG, "result", result);
 	}
 
