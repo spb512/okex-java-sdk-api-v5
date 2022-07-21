@@ -68,7 +68,7 @@ public class MarketDataApiTest extends MarketDataApiBaseTest {
 	@Test
 	public void getCandlesticks() {
 
-		JSONObject result = this.marketDataApiService.getCandlesticks("ETH-USDT-SWAP", null, null, "1H", "12");
+		JSONObject result = this.marketDataApiService.getCandlesticks("ETH-USDT-SWAP", null, null, "3m", "100");
 		this.toResultString(MarketDataApiTest.LOG, "result", result);
 	}
 

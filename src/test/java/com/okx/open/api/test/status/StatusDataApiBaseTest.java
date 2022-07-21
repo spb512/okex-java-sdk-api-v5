@@ -15,7 +15,7 @@ public class StatusDataApiBaseTest extends BaseTests {
 	public ApiConfiguration config() {
 		ApiConfiguration config = new ApiConfiguration();
 
-		config.setEndpoint("https://www.ouyicn.cloud/");
+		config.setEndpoint("https://www.okx.com/");
 
 		config.setApiKey("");
 		config.setSecretKey("");

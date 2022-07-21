@@ -93,7 +93,7 @@ public class PublicChannelTest {
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "open-interest");
-		map.put("instId", "BTC-USDT-210924");
+		map.put("instId", "ETH-USDT-SWAP");
 
 		channelList.add(map);
 		// 调用订阅方法
@@ -116,7 +116,7 @@ public class PublicChannelTest {
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "candle5m");
-		map.put("instId", "BTC-USDT-210924");
+		map.put("instId", "ETH-USDT-SWAP");
 
 		channelList.add(map);
 		// 调用订阅方法
@@ -277,7 +277,7 @@ public class PublicChannelTest {
 	 * 公共-深度频道(400档) Order Book Channel
 	 */
 	@Test
-	public void booksChannel() {
+	public void oubooksChannel() {
 		// 添加订阅频道
 		ArrayList<Map<String, String>> channelList = new ArrayList<>();
 
