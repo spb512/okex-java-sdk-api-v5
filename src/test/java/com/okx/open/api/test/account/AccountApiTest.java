@@ -1,14 +1,17 @@
 package com.okx.open.api.test.account;
 
-import com.alibaba.fastjson.JSONObject;
-import com.okx.open.api.bean.account.param.*;
-import com.okx.open.api.service.account.AccountApiService;
-import com.okx.open.api.service.account.impl.AccountApiServiceImpl;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.alibaba.fastjson.JSONObject;
+import com.okx.open.api.bean.account.param.IncreaseDecreaseMargin;
+import com.okx.open.api.bean.account.param.SetLeverage;
+import com.okx.open.api.bean.account.param.SetPositionMode;
+import com.okx.open.api.bean.account.param.SetTheDisplayTypeOfGreeks;
+import com.okx.open.api.service.account.AccountApiService;
+import com.okx.open.api.service.account.impl.AccountApiServiceImpl;
 
 /**
  * 

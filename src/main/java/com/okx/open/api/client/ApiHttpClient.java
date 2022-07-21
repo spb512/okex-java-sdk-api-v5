@@ -1,5 +1,15 @@
 package com.okx.open.api.client;
 
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.security.InvalidKeyException;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.okx.open.api.config.ApiConfiguration;
 import com.okx.open.api.constant.ApiConstants;
 import com.okx.open.api.enums.ContentTypeEnum;
@@ -8,17 +18,12 @@ import com.okx.open.api.exception.ApiException;
 import com.okx.open.api.utils.DateUtils;
 import com.okx.open.api.utils.HmacSha256Base64Utils;
 
-import okhttp3.*;
+import okhttp3.Headers;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import okio.Buffer;
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.security.InvalidKeyException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 
@@ -62,7 +67,7 @@ public class ApiHttpClient {
 	 */
 	public OkHttpClient client() {
 		final OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
-		//代理服务器的IP和端口号
+		// 代理服务器的IP和端口号
 		clientBuilder.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809)));
 		clientBuilder.connectTimeout(this.config.getConnectTimeout(), TimeUnit.SECONDS);
 		clientBuilder.readTimeout(this.config.getReadTimeout(), TimeUnit.SECONDS);
