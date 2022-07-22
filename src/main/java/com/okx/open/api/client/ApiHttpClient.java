@@ -1,8 +1,8 @@
 package com.okx.open.api.client;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
+//import java.net.InetSocketAddress;
+//import java.net.Proxy;
 import java.security.InvalidKeyException;
 import java.util.concurrent.TimeUnit;
 
@@ -68,7 +68,7 @@ public class ApiHttpClient {
 	public OkHttpClient client() {
 		final OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 		// 代理服务器的IP和端口号
-		clientBuilder.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809)));
+//		clientBuilder.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809)));
 		clientBuilder.connectTimeout(this.config.getConnectTimeout(), TimeUnit.SECONDS);
 		clientBuilder.readTimeout(this.config.getReadTimeout(), TimeUnit.SECONDS);
 		clientBuilder.writeTimeout(this.config.getWriteTimeout(), TimeUnit.SECONDS);
