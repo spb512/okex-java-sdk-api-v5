@@ -16,7 +16,7 @@ import com.okx.open.api.service.publics.data.impl.PublicDataApiServiceImpl;
  *
  */
 public class PublicDataApiTest extends PublicDataApiBaseTest {
-	private static final Logger LOG = LoggerFactory.getLogger(PublicDataApiTest.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	private PublicDataApiService publicDataApiService;
 
@@ -32,7 +32,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getInstruments() {
 		JSONObject result = publicDataApiService.getInstruments("SWAP", null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 
 	}
 
@@ -43,7 +43,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getDeliveryExerciseHistory() {
 		JSONObject result = publicDataApiService.getDeliveryExerciseHistory("OPTION", "BTC-USD", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getOpenInterest() {
 		JSONObject result = publicDataApiService.getOpenInterest("FUTURES", "LTC-USDT", "LTC-USDT-210416");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getFundingRate() {
 		JSONObject result = publicDataApiService.getFundingRate("BTC-USDT-SWAP");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getFundingRateHistory() {
 		JSONObject result = publicDataApiService.getFundingRateHistory("ETH-USD-SWAP", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getLimitPrice() {
 		JSONObject result = publicDataApiService.getLimitPrice("BTC-USD-210326");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getOptionMarketData() {
 		JSONObject result = publicDataApiService.getOptionMarketData("BTC-USD", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getEstimatedDeliveryExcercisePrice() {
 		JSONObject result = publicDataApiService.getEstimatedDeliveryExcercisePrice("BTC-USD-210326");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getDiscountRateAndInterestFreeQuota() {
 		JSONObject result = publicDataApiService.getDiscountRateAndInterestFreeQuota(null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getSystemTime() {
 		JSONObject result = publicDataApiService.getSystemTime();
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	public void getLiquidationOrders() {
 		JSONObject result = publicDataApiService.getLiquidationOrders("FUTURES", null, null, null, "BTC-USDT",
 				"quarter", "filled", null, null, null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getMarkPrice() {
 		JSONObject result = publicDataApiService.getMarkPrice("FUTURES", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -145,7 +145,7 @@ public class PublicDataApiTest extends PublicDataApiBaseTest {
 	@Test
 	public void getTier() {
 		JSONObject result = publicDataApiService.getTier("FUTURES", "BTC-USDT", null, "isolated", null, null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 }

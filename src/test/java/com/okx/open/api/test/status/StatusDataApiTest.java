@@ -17,7 +17,7 @@ import com.okx.open.api.service.status.impl.StatusDataApiServiceImpl;
  */
 public class StatusDataApiTest extends StatusDataApiBaseTest {
 
-	private static final Logger LOG = LoggerFactory.getLogger(StatusDataApiTest.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 	private StatusDataApiService statusDataApiService;
 
 	@Before
@@ -32,7 +32,7 @@ public class StatusDataApiTest extends StatusDataApiBaseTest {
 	@Test
 	public void testGetStatus() {
 		JSONObject result = statusDataApiService.getStatus("completed");
-		this.toResultString(StatusDataApiTest.LOG, "result", result);
+		this.toResultString(logger, "result", result);
 
 	}
 

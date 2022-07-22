@@ -29,7 +29,7 @@ import java.util.Optional;
  */
 public class ApiClient {
 
-	private static final Logger LOG = LoggerFactory.getLogger(ApiClient.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	private final ApiConfiguration config;
 	private final ApiCredentials credentials;
@@ -160,7 +160,7 @@ public class ApiClient {
 		} else {
 			responseInfo.append("\n\t\t").append("\n\tRequest Error: response is null");
 		}
-		ApiClient.LOG.info(responseInfo.toString());
+		logger.info(responseInfo.toString());
 	}
 
 	@Override

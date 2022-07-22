@@ -21,7 +21,7 @@ import java.io.IOException;
  */
 public class ApiHttp {
 
-	private static final Logger LOG = LoggerFactory.getLogger(ApiHttp.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	private OkHttpClient client;
 	private ApiConfiguration config;
@@ -87,7 +87,7 @@ public class ApiHttp {
 		} else {
 			responseInfo.append("\n\t\t").append("\n\tRequest Error: response is null");
 		}
-		LOG.info(responseInfo.toString());
+		logger.info(responseInfo.toString());
 	}
 
 	public String url(String url) {

@@ -21,7 +21,7 @@ import com.okx.open.api.service.sub.account.impl.SubAccountApiServiceImpl;
  */
 public class SubAccountApiTest extends SubAccountApiBaseTest {
 
-	private static final Logger LOG = LoggerFactory.getLogger(SubAccountApiTest.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	private SubAccountApiService subAccountApiService;
 
@@ -39,7 +39,7 @@ public class SubAccountApiTest extends SubAccountApiBaseTest {
 	@Test
 	public void testGetSubAccountBalances() {
 		JSONObject result = this.subAccountApiService.getSubAccountBalances("ctt042501");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class SubAccountApiTest extends SubAccountApiBaseTest {
 	@Test
 	public void testGetSubAccountBills() {
 		JSONObject result = this.subAccountApiService.getSubAccountBills("OKB", "0", "ctt042501", null, null, null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class SubAccountApiTest extends SubAccountApiBaseTest {
 		delSunAccountApikey.setSubAcct("");
 		delSunAccountApikey.setApiKey("");
 		JSONObject result = this.subAccountApiService.delSubAccountApiKey(delSunAccountApikey);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 
 	}
 
@@ -84,7 +84,7 @@ public class SubAccountApiTest extends SubAccountApiBaseTest {
 		reSetSubAccountApikey.setIp(null);
 
 		JSONObject result = this.subAccountApiService.reSetSubAccountApiKey(reSetSubAccountApikey);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 
 	}
 
@@ -104,7 +104,7 @@ public class SubAccountApiTest extends SubAccountApiBaseTest {
 		createSubAccountApikey.setIp(null);
 
 		JSONObject result = this.subAccountApiService.createSubAccountApiKey(createSubAccountApikey);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class SubAccountApiTest extends SubAccountApiBaseTest {
 	@Test
 	public void testGetSubAccountList() {
 		JSONObject result = this.subAccountApiService.getSubAccountList("", "", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class SubAccountApiTest extends SubAccountApiBaseTest {
 		subAccountTransfer.setToSubAccount("");
 
 		JSONObject result = this.subAccountApiService.subAccountTransfer(subAccountTransfer);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 }

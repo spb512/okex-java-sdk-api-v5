@@ -21,7 +21,7 @@ import com.okx.open.api.service.account.impl.AccountApiServiceImpl;
  */
 public class AccountApiTest extends AccountApiBaseTest {
 
-	private static final Logger LOG = LoggerFactory.getLogger(AccountApiTest.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	private AccountApiService accountApiService;
 
@@ -38,7 +38,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getAccountAndPosition() {
 		JSONObject result = this.accountApiService.getAccountAndPosition("SWAP");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getBalance() {
 		JSONObject result = this.accountApiService.getBalance("USDT");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getPositions() {
 		JSONObject result = this.accountApiService.getPositions("SWAP", null, null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getBillsDetails7Days() {
 		JSONObject result = this.accountApiService.getBillsDetails7Days("FUTERES", "", "", "", "", "", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	public void getBillsDetails3Months() {
 		JSONObject result = this.accountApiService.getBillsDetails3Months("SWAP", null, null, null, "8", null, null,
 				null, null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getAccountConfiguration() {
 		JSONObject result = this.accountApiService.getAccountConfiguration();
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 		SetPositionMode setPositionMode = new SetPositionMode();
 		setPositionMode.setPosMode("long_short_mode");
 		JSONObject result = this.accountApiService.setPositionMode(setPositionMode);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 		setLeverage.setPosSide("net");
 
 		JSONObject result = this.accountApiService.setLeverage(setLeverage);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getMaximumTradableSizeForInstrument() {
 		JSONObject result = this.accountApiService.getMaximumTradableSizeForInstrument("BTC-USDT", "cross", "BTC", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	public void getMaximumAvailableTradableAmount() {
 		JSONObject result = this.accountApiService.getMaximumAvailableTradableAmount("BTC-USDT-210924", "isolated", "",
 				"");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 		increaseDecreaseMargin.setAmt("100");
 
 		JSONObject result = this.accountApiService.increaseDecreaseMargin(increaseDecreaseMargin);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -158,7 +158,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getLeverage() {
 		JSONObject result = this.accountApiService.getLeverage("ETH-USDT-SWAP", "isolated");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getTheMaximumLoanOfIsolatedMargin() {
 		JSONObject result = this.accountApiService.getTheMaximumLoanOfIsolatedMargin("BTC-USDT", "cross", "BTC");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -176,7 +176,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getFeeRates() {
 		JSONObject result = this.accountApiService.getFeeRates("SWAP", null, "BTC-USDT", null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -185,7 +185,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getInterestAccrued() {
 		JSONObject result = this.accountApiService.getInterestAccrued("BTC-USDT", "USDT", "", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getInterestRate() {
 		JSONObject result = this.accountApiService.getInterestRate("USDT");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -205,7 +205,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 		SetTheDisplayTypeOfGreeks setTheDisplayTypeOfGreeks = new SetTheDisplayTypeOfGreeks();
 		setTheDisplayTypeOfGreeks.setGreeksType("PA");
 		JSONObject result = this.accountApiService.setTheDisplayTypeOfGreeks(setTheDisplayTypeOfGreeks);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -214,7 +214,7 @@ public class AccountApiTest extends AccountApiBaseTest {
 	@Test
 	public void getMaximumWithdrawals() {
 		JSONObject result = this.accountApiService.getMaximumWithdrawals("USDT");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 }

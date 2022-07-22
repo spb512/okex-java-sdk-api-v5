@@ -20,7 +20,7 @@ import java.util.List;
  *
  */
 public class TradeApiTest extends TradeApiBaseTest {
-	private static final Logger LOG = LoggerFactory.getLogger(TradeApiTest.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 	private TradeApiService tradeApiService;
 
 	@Before
@@ -49,7 +49,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 //        placeOrder.setReduceOnly(false);
 		JSONObject result = tradeApiService.placeOrder(placeOrder);
 
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 
 		JSONObject result = tradeApiService.placeMultipleOrders(placeOrders);
 
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -103,7 +103,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 		cancelOrder.setClOrdId("");
 		JSONObject result = tradeApiService.cancelOrder(cancelOrder);
 
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -128,7 +128,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 
 		JSONObject result = tradeApiService.cancelMultipleOrders(cancelOrders);
 
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 
 		JSONObject result = tradeApiService.amendOrder(amendOrder);
 
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -182,7 +182,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 
 		JSONObject result = tradeApiService.amendMultipleOrders(amendOrders);
 
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 		closePositions.setCcy("");
 		JSONObject result = tradeApiService.closePositions(closePositions);
 
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 
 	}
 
@@ -208,7 +208,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 	@Test
 	public void getOrderDetails() {
 		JSONObject result = tradeApiService.getOrderDetails("EOS-USDT", null, "0420aaa");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -217,7 +217,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 	@Test
 	public void getOrderList() {
 		JSONObject result = tradeApiService.getOrderList("FUTURES", "", "EOS-USDT-210924", "", "", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -227,7 +227,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 	@Test
 	public void getOrderHistory7days() {
 		JSONObject result = tradeApiService.getOrderHistory7days("FUTURES", "", "", "", "", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -237,7 +237,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 	@Test
 	public void getOrderHistory3months() {
 		JSONObject result = tradeApiService.getOrderHistory3months("SWAP", "", "BTC-USDT-SWAP", "", "", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -247,7 +247,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 	public void getTransactionDetails() {
 
 		JSONObject result = tradeApiService.getTransactionDetails(null, null, null, null, null, null, null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 
 	}
 
@@ -277,7 +277,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 		placeAlgoOrder.setOrderPx("0.7");
 
 		JSONObject result = tradeApiService.placeAlgoOrder(placeAlgoOrder);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 
 	}
 
@@ -295,7 +295,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 		list.add(cancelAlgoOrder);
 
 		JSONObject result = tradeApiService.cancelAlgoOrder(list);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -305,7 +305,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 	public void getAlgoOrderList() {
 		JSONObject result = tradeApiService.getAlgoOrderList("300592229014450176", null, null, "trigger", null, null,
 				"10");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -315,7 +315,7 @@ public class TradeApiTest extends TradeApiBaseTest {
 	public void getAlgoOrderHistory() {
 		JSONObject result = tradeApiService.getAlgoOrderHistory("effective", null, null, null, "trigger", null, null,
 				"10");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 }

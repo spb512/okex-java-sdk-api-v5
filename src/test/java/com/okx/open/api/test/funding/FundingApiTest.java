@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  */
 public class FundingApiTest extends FundingApiBaseTest {
 
-	private static final Logger LOG = LoggerFactory.getLogger(FundingApiTest.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	private FundingApiService fundingApiService;
 
@@ -36,7 +36,7 @@ public class FundingApiTest extends FundingApiBaseTest {
 	@Test
 	public void getDepositAddress() {
 		JSONObject result = fundingApiService.getDepositAddress("BTC");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class FundingApiTest extends FundingApiBaseTest {
 	@Test
 	public void getBalance() {
 		JSONObject result = fundingApiService.getBalance("USDT");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class FundingApiTest extends FundingApiBaseTest {
 		fundsTransfer.setInstId("EOS-USD");
 		fundsTransfer.setToInstId("EOS-USD");
 		JSONObject result = fundingApiService.fundsTransfer(fundsTransfer);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class FundingApiTest extends FundingApiBaseTest {
 		withdrawal.setPwd("888888");
 		withdrawal.setFee("1");
 		JSONObject result = fundingApiService.withdrawal(withdrawal);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class FundingApiTest extends FundingApiBaseTest {
 	@Test
 	public void getDepositHistory() {
 		JSONObject result = fundingApiService.getDepositHistory("BTC", "", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class FundingApiTest extends FundingApiBaseTest {
 	@Test
 	public void getWithdrawalHistory() {
 		JSONObject result = fundingApiService.getWithdrawalHistory("BTC", "", "", "", "");
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class FundingApiTest extends FundingApiBaseTest {
 	@Test
 	public void getCurrencies() {
 		JSONObject result = fundingApiService.getCurrencies();
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -119,7 +119,7 @@ public class FundingApiTest extends FundingApiBaseTest {
 		piggyBankPurchaseRedemption.setAmt("1");
 		piggyBankPurchaseRedemption.setSide("purchase");
 		JSONObject result = fundingApiService.piggyBankPurchaseRedemption(piggyBankPurchaseRedemption);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 	/**
@@ -128,7 +128,7 @@ public class FundingApiTest extends FundingApiBaseTest {
 	@Test
 	public void assetBillsDetails() {
 		JSONObject result = fundingApiService.assetBillsDetails("BTC", null, null, null, null);
-		toResultString(LOG, "result", result);
+		toResultString(logger, "result", result);
 	}
 
 }
