@@ -56,6 +56,9 @@ public class ApiConfiguration {
 	 */
 	private I18nEnum i18n;
 
+	private int simulated;
+	private boolean proxyed;
+
 	public ApiConfiguration() {
 		this(null);
 	}
@@ -153,4 +156,21 @@ public class ApiConfiguration {
 	public void setI18n(I18nEnum i18n) {
 		this.i18n = i18n;
 	}
+
+	public int getSimulated() {
+		return simulated;
+	}
+
+	public void setSimulated(int simulated) {
+		this.simulated = simulated;
+	}
+
+	public boolean isProxyed() {
+		return proxyed;
+	}
+
+	public void setProxyed(boolean proxyed) {
+		this.proxyed = proxyed;
+	}
+
 }

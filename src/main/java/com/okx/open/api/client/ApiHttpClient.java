@@ -1,6 +1,8 @@
 package com.okx.open.api.client;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.security.InvalidKeyException;
 import java.util.concurrent.TimeUnit;
 
@@ -66,7 +68,9 @@ public class ApiHttpClient {
 	public OkHttpClient client() {
 		final OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 
-//		clientBuilder.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809)));// 使用代理
+		if (this.config.isProxyed()) {
+			clientBuilder.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809)));// 使用代理
+		}
 		clientBuilder.connectTimeout(this.config.getConnectTimeout(), TimeUnit.SECONDS);
 		clientBuilder.readTimeout(this.config.getReadTimeout(), TimeUnit.SECONDS);
 		clientBuilder.writeTimeout(this.config.getWriteTimeout(), TimeUnit.SECONDS);
@@ -108,7 +112,9 @@ public class ApiHttpClient {
 			builder.add(HttpHeadersEnum.OK_ACCESS_TIMESTAMP.header(), timestamp);
 			builder.add(HttpHeadersEnum.OK_ACCESS_PASSPHRASE.header(), this.credentials.getPassphrase());
 		}
-//		builder.add("x-simulated-trading", "1");// 模拟环境标识
+		if(this.config.getSimulated() == 1) {
+			builder.add("x-simulated-trading", "1");// 模拟环境标识
+		}
 
 		return builder.build();
 	}
