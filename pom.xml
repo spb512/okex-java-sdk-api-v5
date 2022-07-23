@@ -9,7 +9,11 @@
 	<version>1.0.0</version>
 
 	<properties>
+		<java.version>17</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>
@@ -174,26 +178,24 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.10.1</version>
-				<configuration>
+				<!-- <configuration>
 					<source>17</source>
 					<target>17</target>
-				</configuration>
+				</configuration> -->
 			</plugin>
 			<!-- 打包源码包插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>3.2.1</version>
-				<configuration>
-					<excludes>
-						<exclude>**/*.properties</exclude>
-					</excludes>
-				</configuration>
+				<!-- <configuration> <excludes> <exclude>**/*.properties</exclude> </excludes> 
+					</configuration> -->
 				<executions>
 					<execution>
 						<id>attach-sources</id>
 						<goals>
 							<goal>jar</goal>
+							<goal>test-jar</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -207,6 +209,7 @@
 						<id>attach-javadocs</id>
 						<goals>
 							<goal>jar</goal>
+							<goal>test-jar</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -219,11 +222,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.2.2</version>
-				<configuration>
-					<excludes>
-						<exclude>**/*.properties</exclude>
-					</excludes>
-				</configuration>
+				<!-- <configuration> <excludes> <exclude>**/*.properties</exclude> </excludes> 
+					</configuration> -->
 				<executions>
 					<execution>
 						<goals>
