@@ -69,7 +69,8 @@ public class ApiHttpClient {
 		final OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 
 		if (this.config.isProxyed()) {
-			clientBuilder.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809)));// 使用代理
+			// 使用代理
+			clientBuilder.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809)));
 		}
 		clientBuilder.connectTimeout(this.config.getConnectTimeout(), TimeUnit.SECONDS);
 		clientBuilder.readTimeout(this.config.getReadTimeout(), TimeUnit.SECONDS);
@@ -112,8 +113,9 @@ public class ApiHttpClient {
 			builder.add(HttpHeadersEnum.OK_ACCESS_TIMESTAMP.header(), timestamp);
 			builder.add(HttpHeadersEnum.OK_ACCESS_PASSPHRASE.header(), this.credentials.getPassphrase());
 		}
-		if(this.config.getSimulated() == 1) {
-			builder.add("x-simulated-trading", "1");// 模拟环境标识
+		if (this.config.getSimulated() == 1) {
+			// 模拟环境标识
+			builder.add("x-simulated-trading", "1");
 		}
 
 		return builder.build();
