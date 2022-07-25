@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * @date 2022年6月5日 下午4:51:47
  *
  */
-public class FundingApiTest extends FundingApiBaseTest {
+public class FundingApiTests extends FundingApiBaseTest {
 
 	Logger logger = LoggerFactory.getLogger(getClass());
 

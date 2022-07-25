@@ -19,7 +19,7 @@ import java.util.List;
  * @date 2022年6月5日 下午5:02:59
  *
  */
-public class TradeApiTest extends TradeApiBaseTest {
+public class TradeApiTests extends TradeApiBaseTest {
 	Logger logger = LoggerFactory.getLogger(getClass());
 	private TradeApiService tradeApiService;
 

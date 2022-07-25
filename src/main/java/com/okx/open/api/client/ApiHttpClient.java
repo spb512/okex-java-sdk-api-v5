@@ -68,9 +68,10 @@ public class ApiHttpClient {
 	public OkHttpClient client() {
 		final OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 
-		if (this.config.isProxyed()) {
+		if (!config.getProxyServerAddress().isEmpty() && config.getProxyServerPort() > 0) {
 			// 使用代理
-			clientBuilder.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 10809)));
+			clientBuilder.proxy(new Proxy(Proxy.Type.HTTP,
+					new InetSocketAddress(config.getProxyServerAddress(), config.getProxyServerPort())));
 		}
 		clientBuilder.connectTimeout(this.config.getConnectTimeout(), TimeUnit.SECONDS);
 		clientBuilder.readTimeout(this.config.getReadTimeout(), TimeUnit.SECONDS);

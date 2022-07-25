@@ -19,7 +19,7 @@ import com.okx.open.api.service.sub.account.impl.SubAccountApiServiceImpl;
  * @date 2022年6月5日 下午5:02:59
  *
  */
-public class SubAccountApiTest extends SubAccountApiBaseTest {
+public class SubAccountApiTests extends SubAccountApiBaseTest {
 
 	Logger logger = LoggerFactory.getLogger(getClass());
 

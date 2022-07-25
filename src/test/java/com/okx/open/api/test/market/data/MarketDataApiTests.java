@@ -15,7 +15,7 @@ import com.okx.open.api.service.market.data.impl.MarketDataApiServiceImpl;
  * @date 2022年6月5日 下午5:02:59
  *
  */
-public class MarketDataApiTest extends MarketDataApiBaseTest {
+public class MarketDataApiTests extends MarketDataApiBaseTest {
 
 	Logger logger = LoggerFactory.getLogger(getClass());
 	public MarketDataApiService marketDataApiService;

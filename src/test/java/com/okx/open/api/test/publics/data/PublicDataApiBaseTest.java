@@ -22,7 +22,8 @@ public class PublicDataApiBaseTest extends BaseTests {
 
 		config.setPrint(true);
 		config.setSimulated(1);
-		config.setProxyed(true);
+		config.setProxyServerAddress("127.0.0.1");
+		config.setProxyServerPort(10809);
 		/* config.setI18n(I18nEnum.SIMPLIFIED_CHINESE); */
 		config.setI18n(I18nEnum.ENGLISH);
 		return config;

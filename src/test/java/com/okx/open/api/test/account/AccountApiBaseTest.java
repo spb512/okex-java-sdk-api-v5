@@ -25,6 +25,8 @@ public class AccountApiBaseTest extends BaseTests {
 
 		config.setPrint(true);
 		config.setI18n(I18nEnum.ENGLISH);
+		config.setProxyServerAddress("127.0.0.1");
+		config.setProxyServerPort(10809);
 
 		return config;
 	}

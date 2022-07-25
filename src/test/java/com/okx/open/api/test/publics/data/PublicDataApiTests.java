@@ -15,7 +15,7 @@ import com.okx.open.api.service.publics.data.impl.PublicDataApiServiceImpl;
  * @date 2022年6月5日 下午5:02:59
  *
  */
-public class PublicDataApiTest extends PublicDataApiBaseTest {
+public class PublicDataApiTests extends PublicDataApiBaseTest {
 	Logger logger = LoggerFactory.getLogger(getClass());
 
 	private PublicDataApiService publicDataApiService;

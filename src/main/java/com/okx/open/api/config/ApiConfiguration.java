@@ -55,9 +55,18 @@ public class ApiConfiguration {
 	 * internationalization {@link I18nEnum}
 	 */
 	private I18nEnum i18n;
-
+	/**
+	 * 模拟环境标识
+	 */
 	private int simulated;
-	private boolean proxyed;
+	/**
+	 * 代理服务器地址
+	 */
+	private String proxyServerAddress;
+	/**
+	 * 代理服务器端口
+	 */
+	private int proxyServerPort;
 
 	public ApiConfiguration() {
 		this(null);
@@ -165,12 +174,20 @@ public class ApiConfiguration {
 		this.simulated = simulated;
 	}
 
-	public boolean isProxyed() {
-		return proxyed;
+	public String getProxyServerAddress() {
+		return proxyServerAddress;
 	}
 
-	public void setProxyed(boolean proxyed) {
-		this.proxyed = proxyed;
+	public void setProxyServerAddress(String proxyServerAddress) {
+		this.proxyServerAddress = proxyServerAddress;
+	}
+
+	public int getProxyServerPort() {
+		return proxyServerPort;
+	}
+
+	public void setProxyServerPort(int proxyServerPort) {
+		this.proxyServerPort = proxyServerPort;
 	}
 
 }

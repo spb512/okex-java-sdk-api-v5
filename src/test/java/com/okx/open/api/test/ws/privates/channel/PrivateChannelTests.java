@@ -18,7 +18,7 @@ import com.okx.open.api.test.ws.privates.channel.config.WebSocketConfig;
  * @date 2022年6月5日 下午5:02:59
  *
  */
-public class PrivateChannelTest {
+public class PrivateChannelTests {
 	private static final WebSocketClient WEBSOCKET_CLIENT = new WebSocketClient();
 //	private static Logger logger = Logger.getLogger(PrivateChannelTest.class);
 

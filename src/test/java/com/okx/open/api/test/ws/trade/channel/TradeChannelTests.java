@@ -18,7 +18,7 @@ import com.okx.open.api.test.ws.trade.channel.config.WebSocketConfig;
  * @date 2022年6月5日 下午5:02:59
  *
  */
-public class TradeChannelTest {
+public class TradeChannelTests {
 
 	private static final WebSocketClient WEBSOCKET_CLIENT = new WebSocketClient();
 

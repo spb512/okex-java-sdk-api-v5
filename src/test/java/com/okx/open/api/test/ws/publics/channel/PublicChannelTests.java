@@ -18,7 +18,7 @@ import com.okx.open.api.test.ws.publics.channel.config.WebSocketConfig;
  * @date 2022年6月5日 下午5:02:59
  *
  */
-public class PublicChannelTest {
+public class PublicChannelTests {
 
 	private static final WebSocketClient WEBSOCKET_CLIENT = new WebSocketClient();
 
