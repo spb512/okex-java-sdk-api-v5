@@ -8,7 +8,7 @@ package com.okx.open.api.test.ws.publics.channel.config;
  */
 public class WebSocketConfig {
 	// ws 模拟盘
-//    private static final String SERVICE_URL = "wss://ws.okx.com:8443/ws/v5/public?brokerId=9999";
+//	private static final String SERVICE_URL = "wss://wspap.okx.com:8443/ws/v5/public?brokerId=9999";
 	/**
 	 * ws 实盘
 	 */
