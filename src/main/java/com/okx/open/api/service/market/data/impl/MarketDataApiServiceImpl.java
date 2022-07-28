@@ -1,6 +1,6 @@
 package com.okx.open.api.service.market.data.impl;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.okx.open.api.client.ApiClient;
 import com.okx.open.api.config.ApiConfiguration;
 import com.okx.open.api.service.market.data.MarketDataApiService;

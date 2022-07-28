@@ -1,6 +1,6 @@
 package com.okx.open.api.service.market.data.impl;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

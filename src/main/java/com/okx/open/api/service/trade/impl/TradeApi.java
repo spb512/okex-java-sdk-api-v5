@@ -1,15 +1,19 @@
 package com.okx.open.api.service.trade.impl;
 
-import com.alibaba.fastjson.JSONObject;
-import com.okx.open.api.bean.trade.param.*;
+import java.util.List;
+
+import com.alibaba.fastjson2.JSONObject;
+import com.okx.open.api.bean.trade.param.AmendOrder;
+import com.okx.open.api.bean.trade.param.CancelAlgoOrder;
+import com.okx.open.api.bean.trade.param.CancelOrder;
+import com.okx.open.api.bean.trade.param.ClosePositions;
+import com.okx.open.api.bean.trade.param.PlaceOrder;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
-
-import java.util.List;
 
 /**
  * 

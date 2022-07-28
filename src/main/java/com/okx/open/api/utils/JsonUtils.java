@@ -1,15 +1,13 @@
 package com.okx.open.api.utils;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.okx.open.api.constant.ApiConstants;
-import com.okx.open.api.exception.ApiException;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.apache.commons.collections4.CollectionUtils;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
+import com.okx.open.api.constant.ApiConstants;
+import com.okx.open.api.exception.ApiException;
 
 /**
  * 
@@ -70,7 +68,7 @@ public class JsonUtils {
 	 */
 	public static final <T> JSONArray convertList(List<T> list, Class<T> tC) {
 		JSONArray array = new JSONArray();
-		if (CollectionUtils.isEmpty(list)) {
+		if (list == null || list.isEmpty()) {
 			return array;
 		}
 

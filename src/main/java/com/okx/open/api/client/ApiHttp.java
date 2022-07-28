@@ -1,17 +1,23 @@
 package com.okx.open.api.client;
 
-import com.alibaba.fastjson.JSONObject;
+import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.okx.open.api.bean.funding.HttpResult;
 import com.okx.open.api.config.ApiConfiguration;
 import com.okx.open.api.constant.ApiConstants;
 import com.okx.open.api.exception.ApiException;
 import com.okx.open.api.utils.DateUtils;
 
-import okhttp3.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * 
@@ -26,7 +32,7 @@ public class ApiHttp {
 	private OkHttpClient client;
 	private ApiConfiguration config;
 
-	static final MediaType JSON = MediaType.Companion.parse("application/json;charset=utf-8");
+	static final MediaType MEDIA_TYPE_JSON = MediaType.Companion.parse("application/json;charset=utf-8");
 
 	public ApiHttp(ApiConfiguration config, OkHttpClient client) {
 		this.config = config;
@@ -40,14 +46,14 @@ public class ApiHttp {
 
 	public String post(String url, JSONObject params) {
 		String body = params.toJSONString();
-		RequestBody requestBody = RequestBody.create(body, JSON);
+		RequestBody requestBody = RequestBody.create(body, MEDIA_TYPE_JSON);
 		Request request = new Request.Builder().url(url(url)).post(requestBody).build();
 		return execute(request);
 	}
 
 	public String delete(String url, JSONObject params) {
 		String body = params.toJSONString();
-		RequestBody requestBody = RequestBody.create(body, JSON);
+		RequestBody requestBody = RequestBody.create(body, MEDIA_TYPE_JSON);
 		Request request = new Request.Builder().url(url(url)).delete(requestBody).build();
 		return execute(request);
 	}
@@ -67,7 +73,7 @@ public class ApiHttp {
 			if (response.isSuccessful()) {
 				return bodyString;
 			} else if (ApiConstants.RESULT_STATUS_ARRAY.contains(status)) {
-				HttpResult result = com.alibaba.fastjson.JSON.parseObject(bodyString, HttpResult.class);
+				HttpResult result = JSON.parseObject(bodyString, HttpResult.class);
 				throw new ApiException(result.getCode(), result.getMessage());
 			} else {
 				throw new ApiException(message);

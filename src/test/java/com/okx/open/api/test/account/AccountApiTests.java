@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.okx.open.api.bean.account.param.IncreaseDecreaseMargin;
 import com.okx.open.api.bean.account.param.SetLeverage;
 import com.okx.open.api.bean.account.param.SetPositionMode;

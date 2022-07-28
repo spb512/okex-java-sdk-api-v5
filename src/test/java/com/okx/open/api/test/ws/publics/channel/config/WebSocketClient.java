@@ -22,6 +22,8 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 import org.joda.time.DateTime;
 
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.google.common.hash.HashFunction;
@@ -33,7 +35,6 @@ import com.okx.open.api.bean.other.SpotOrderBookItem;
 import com.okx.open.api.enums.CharsetEnum;
 import com.okx.open.api.utils.DateUtils;
 
-import net.sf.json.JSONObject;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -157,9 +158,9 @@ public class WebSocketClient {
 
 	private static void isKline(final String s) {
 		// 不是深度 k线接口
-		JSONObject rst = JSONObject.fromObject(s);
-		net.sf.json.JSONArray dataArr = net.sf.json.JSONArray.fromObject(rst.get("data"));
-		JSONObject data = JSONObject.fromObject(dataArr.get(0));
+		JSONObject rst = JSONObject.parseObject(s);
+		JSONArray dataArr = rst.getJSONArray("data");
+		JSONObject data = dataArr.getJSONObject(0);
 
 		Long pushTimestamp = null;
 		Long localTimestamp = DateTime.now().getMillis();
@@ -187,21 +188,21 @@ public class WebSocketClient {
 		// 是后续的增量，则需要进行深度合并
 		boolean actionbor = s.contains(action);
 		if (snapshotBor) {
-			JSONObject rst = JSONObject.fromObject(s);
-			JSONObject arg = JSONObject.fromObject(rst.get(argStr));
-			net.sf.json.JSONArray dataArr = net.sf.json.JSONArray.fromObject(rst.get(dataStr0));
+			JSONObject rst = JSONObject.parseObject(s);
+			JSONObject arg = rst.getJSONObject(argStr);
+			JSONArray dataArr = rst.getJSONArray(dataStr0);
 
-			JSONObject data = JSONObject.fromObject(dataArr.get(0));
+			JSONObject data = dataArr.getJSONObject(0);
 			String dataStr = data.toString();
 			Optional<SpotOrderBook> oldBook = parse(dataStr);
 			String instrumentId = arg.get(instId).toString();
 			bookMap.put(instrumentId, oldBook);
 		} else if (actionbor) {
 
-			JSONObject rst = JSONObject.fromObject(s);
-			JSONObject arg = JSONObject.fromObject(rst.get(argStr));
-			net.sf.json.JSONArray dataArr = net.sf.json.JSONArray.fromObject(rst.get(dataStr0));
-			JSONObject data = JSONObject.fromObject(dataArr.get(0));
+			JSONObject rst = JSONObject.parseObject(s);
+			JSONObject arg = rst.getJSONObject(argStr);
+			JSONArray dataArr = rst.getJSONArray(dataStr0);
+			JSONObject data = dataArr.getJSONObject(0);
 			String dataStr = data.toString();
 
 			String instrumentId = arg.get(instId).toString();

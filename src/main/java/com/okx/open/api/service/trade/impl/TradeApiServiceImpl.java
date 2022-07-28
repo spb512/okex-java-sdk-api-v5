@@ -1,13 +1,18 @@
 package com.okx.open.api.service.trade.impl;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.okx.open.api.bean.trade.param.*;
+import java.util.List;
+
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
+import com.okx.open.api.bean.trade.param.AmendOrder;
+import com.okx.open.api.bean.trade.param.CancelAlgoOrder;
+import com.okx.open.api.bean.trade.param.CancelOrder;
+import com.okx.open.api.bean.trade.param.ClosePositions;
+import com.okx.open.api.bean.trade.param.PlaceAlgoOrder;
+import com.okx.open.api.bean.trade.param.PlaceOrder;
 import com.okx.open.api.client.ApiClient;
 import com.okx.open.api.config.ApiConfiguration;
 import com.okx.open.api.service.trade.TradeApiService;
-
-import java.util.List;
 
 /**
  * 

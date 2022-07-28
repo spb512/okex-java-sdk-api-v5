@@ -1,6 +1,6 @@
 package com.okx.open.api.service.status;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 
 /**
  * 

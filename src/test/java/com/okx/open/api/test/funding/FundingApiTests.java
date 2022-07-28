@@ -1,16 +1,16 @@
 package com.okx.open.api.test.funding;
 
-import com.alibaba.fastjson.JSONObject;
+import org.junit.Before;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.alibaba.fastjson2.JSONObject;
 import com.okx.open.api.bean.funding.param.FundsTransfer;
 import com.okx.open.api.bean.funding.param.PiggyBankPurchaseRedemption;
 import com.okx.open.api.bean.funding.param.Withdrawal;
 import com.okx.open.api.service.funding.FundingApiService;
 import com.okx.open.api.service.funding.impl.FundingApiServiceImpl;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 

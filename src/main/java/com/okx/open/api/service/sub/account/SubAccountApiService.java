@@ -1,6 +1,6 @@
 package com.okx.open.api.service.sub.account;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.okx.open.api.bean.sub.account.param.CreateSubAccountApikey;
 import com.okx.open.api.bean.sub.account.param.DelSunAccountApikey;
 import com.okx.open.api.bean.sub.account.param.ReSetSubAccountApikey;

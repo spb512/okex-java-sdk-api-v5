@@ -1,7 +1,9 @@
 package com.okx.open.api.service.funding;
 
-import com.alibaba.fastjson.JSONObject;
-import com.okx.open.api.bean.funding.param.*;
+import com.alibaba.fastjson2.JSONObject;
+import com.okx.open.api.bean.funding.param.FundsTransfer;
+import com.okx.open.api.bean.funding.param.PiggyBankPurchaseRedemption;
+import com.okx.open.api.bean.funding.param.Withdrawal;
 
 /**
  * 

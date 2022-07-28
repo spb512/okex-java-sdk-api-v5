@@ -1,9 +1,9 @@
 package com.okx.open.api.test;
 
-import com.alibaba.fastjson.JSON;
-import com.okx.open.api.config.ApiConfiguration;
-
 import org.slf4j.Logger;
+
+import com.alibaba.fastjson2.JSON;
+import com.okx.open.api.config.ApiConfiguration;
 
 /**
  * 

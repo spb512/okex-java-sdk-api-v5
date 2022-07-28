@@ -1,14 +1,14 @@
 package com.okx.open.api.constant;
 
-import com.alibaba.fastjson.JSONObject;
+import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.List;
+
+import com.alibaba.fastjson2.JSONObject;
 import com.okx.open.api.enums.CharsetEnum;
 import com.okx.open.api.enums.ContentTypeEnum;
 
 import okhttp3.MediaType;
-
-import java.nio.charset.Charset;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * 
