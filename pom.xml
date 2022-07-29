@@ -59,22 +59,10 @@
 			<artifactId>retrofit</artifactId>
 			<version>2.9.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-scalars -->
-		<dependency>
-			<groupId>com.squareup.retrofit2</groupId>
-			<artifactId>converter-scalars</artifactId>
-			<version>2.9.0</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson -->
 		<dependency>
 			<groupId>com.squareup.retrofit2</groupId>
 			<artifactId>converter-gson</artifactId>
-			<version>2.9.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/adapter-rxjava2 -->
-		<dependency>
-			<groupId>com.squareup.retrofit2</groupId>
-			<artifactId>adapter-rxjava2</artifactId>
 			<version>2.9.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2 -->

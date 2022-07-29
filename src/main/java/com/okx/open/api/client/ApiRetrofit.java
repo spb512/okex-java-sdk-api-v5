@@ -4,9 +4,7 @@ import com.okx.open.api.config.ApiConfiguration;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * 
@@ -30,9 +28,7 @@ public class ApiRetrofit {
 	public Retrofit retrofit() {
 		Retrofit.Builder builder = new Retrofit.Builder();
 		builder.client(this.client);
-		builder.addConverterFactory(ScalarsConverterFactory.create());
 		builder.addConverterFactory(GsonConverterFactory.create());
-		builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
 		builder.baseUrl(this.config.getEndpoint());
 		return builder.build();
 	}
