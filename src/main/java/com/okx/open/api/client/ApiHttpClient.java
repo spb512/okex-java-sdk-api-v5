@@ -68,7 +68,7 @@ public class ApiHttpClient {
 	public OkHttpClient client() {
 		final OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
 
-		if (!config.getProxyServerAddress().isEmpty() && config.getProxyServerPort() > 0) {
+		if (config.getProxyServerAddress() != null && config.getProxyServerPort() > 0) {
 			// 使用代理
 			clientBuilder.proxy(new Proxy(Proxy.Type.HTTP,
 					new InetSocketAddress(config.getProxyServerAddress(), config.getProxyServerPort())));
