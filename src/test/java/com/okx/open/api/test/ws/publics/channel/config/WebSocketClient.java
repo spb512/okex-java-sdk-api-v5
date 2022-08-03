@@ -2,7 +2,6 @@ package com.okx.open.api.test.ws.publics.channel.config;
 
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
@@ -55,10 +54,6 @@ public class WebSocketClient {
 	private final static HashFunction CRC32 = Hashing.crc32();
 	private final static ObjectReader OBJECT_READER = new ObjectMapper().readerFor(OrderBookData.class);
 	private static Map<String, Optional<SpotOrderBook>> bookMap = new HashMap<>();
-//	private static Logger logger = Logger.getLogger(PublicChannelTest.class);
-
-	public WebSocketClient() {
-	}
 
 	/**
 	 * 与服务器建立连接，参数为服务器的URL
@@ -122,7 +117,9 @@ public class WebSocketClient {
 //                System.out.println("~~~~~~~~~~~~~~~~~~订阅后推送的数据："+s);
 				// 判断是否是深度接口
 				String channel1 = "\"channel\":\"books\",";
-				String channel2 = "\"channel\":\"books-l2-tbt\",";
+				String channel2 = "\"channel\":\"books5\",";
+				String channel3 = "\"channel\":\"books-l2-tbt\",";
+				String channel4 = "\"channel\":\"books50-l2-tbt\",";
 				String action = "\"action\":\"update\",";
 				String snapshot = "snapshot";
 				String argStr = "arg";
@@ -130,7 +127,7 @@ public class WebSocketClient {
 				String instId = "instId";
 				String candle = "candle";
 				String pong = "pong";
-				if (s.contains(channel1) || s.contains(channel2)) {
+				if (s.contains(channel1) || s.contains(channel2)|| s.contains(channel3)|| s.contains(channel4)) {
 					// 是深度接口
 					isDepth(webSocket, s, action, snapshot, argStr, dataStr0, instId);
 				} else if (s.contains(candle)) {
@@ -270,15 +267,6 @@ public class WebSocketClient {
 		return hash;
 	}
 
-	private static String listToJson(List<Map<String, String>> list) {
-		List<Map<String, String>> mapList = new ArrayList<>();
-		for (Map<String, String> map : list) {
-			mapList.add(map);
-		}
-		String jsonString = JSON.toJSONString(mapList);
-		return jsonString;
-	}
-
 	/**
 	 * 登录
 	 * 
@@ -301,7 +289,7 @@ public class WebSocketClient {
 	 * @param list
 	 */
 	public static void subscribe(List<Map<String, String>> list) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"op\": \"subscribe\", \"args\":" + s + "}";
 		if (null != webSocket) {
 			sendMessage(str);
@@ -314,7 +302,7 @@ public class WebSocketClient {
 	 * @param list
 	 */
 	public static void unsubscribe(List<Map<String, String>> list) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"op\": \"unsubscribe\", \"args\":" + s + "}";
 		if (null != webSocket) {
 			sendMessage(str);

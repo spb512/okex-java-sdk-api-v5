@@ -3,6 +3,7 @@ package com.okx.open.api.test.ws.publics.channel;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.After;
@@ -42,7 +43,7 @@ public class PublicChannelTests {
 	@Test
 	public void instrumentsChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "instruments");
@@ -65,7 +66,7 @@ public class PublicChannelTests {
 	@Test
 	public void tickersChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> spotTickerMap = new HashMap<String, String>(16);
 		spotTickerMap.put("channel", "tickers");
@@ -89,7 +90,7 @@ public class PublicChannelTests {
 	@Test
 	public void openInterestChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "open-interest");
@@ -112,7 +113,7 @@ public class PublicChannelTests {
 	@Test
 	public void candleChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "candle5m");
@@ -135,7 +136,7 @@ public class PublicChannelTests {
 	@Test
 	public void tradesChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "trades");
@@ -163,7 +164,7 @@ public class PublicChannelTests {
 	@Test
 	public void estimatedPriceChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "estimated-price");
@@ -187,7 +188,7 @@ public class PublicChannelTests {
 	@Test
 	public void markPriceChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "mark-price");
@@ -210,7 +211,7 @@ public class PublicChannelTests {
 	@Test
 	public void markPriceCandleChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "mark-price-candle1m");
@@ -233,7 +234,7 @@ public class PublicChannelTests {
 	@Test
 	public void priceLimitChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "price-limit");
@@ -256,7 +257,7 @@ public class PublicChannelTests {
 	@Test
 	public void books5Channel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "books5");
@@ -279,7 +280,7 @@ public class PublicChannelTests {
 	@Test
 	public void oubooksChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "books");
@@ -302,7 +303,7 @@ public class PublicChannelTests {
 	@Test
 	public void booksl2tbtChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "books-l2-tbt");
@@ -325,7 +326,7 @@ public class PublicChannelTests {
 	@Test
 	public void books50l2tbtChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "books50-l2-tbt");
@@ -348,7 +349,7 @@ public class PublicChannelTests {
 	@Test
 	public void optSummaryChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "opt-summary");
@@ -371,7 +372,7 @@ public class PublicChannelTests {
 	@Test
 	public void fundingRateChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "funding-rate");
@@ -394,7 +395,7 @@ public class PublicChannelTests {
 	@Test
 	public void indexCandleChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "index-candle30m");
@@ -417,7 +418,7 @@ public class PublicChannelTests {
 	@Test
 	public void indexTickersChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "index-tickers");
@@ -440,7 +441,7 @@ public class PublicChannelTests {
 	@Test
 	public void statusChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "status");
@@ -462,7 +463,7 @@ public class PublicChannelTests {
 	@Test
 	public void unsubscribeChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, String>> channelList = new ArrayList<>();
+		List<Map<String, String>> channelList = new ArrayList<Map<String, String>>();
 
 		Map<String, String> map = new HashMap<String, String>(16);
 		map.put("channel", "index-tickers");

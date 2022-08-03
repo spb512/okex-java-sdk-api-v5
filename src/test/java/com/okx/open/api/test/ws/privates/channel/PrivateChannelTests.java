@@ -3,6 +3,7 @@ package com.okx.open.api.test.ws.privates.channel;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.After;
@@ -20,7 +21,6 @@ import com.okx.open.api.test.ws.privates.channel.config.WebSocketConfig;
  */
 public class PrivateChannelTests {
 	private static final WebSocketClient WEBSOCKET_CLIENT = new WebSocketClient();
-//	private static Logger logger = Logger.getLogger(PrivateChannelTest.class);
 
 	@Before
 	public void connect() {
@@ -40,7 +40,7 @@ public class PrivateChannelTests {
 	@Test
 	public void privateAccountChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, Object>> channelList = new ArrayList<>();
+		List<Map<String, Object>> channelList = new ArrayList<Map<String, Object>>();
 		Map<String, Object> accountMap = new HashMap<String, Object>(16);
 
 		accountMap.put("channel", "account");
@@ -64,7 +64,7 @@ public class PrivateChannelTests {
 	@Test
 	public void privatePositionsChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, Object>> channelList = new ArrayList<>();
+		List<Map<String, Object>> channelList = new ArrayList<Map<String, Object>>();
 		Map<String, Object> positionsMap = new HashMap<String, Object>(16);
 
 		positionsMap.put("channel", "positions");
@@ -90,7 +90,7 @@ public class PrivateChannelTests {
 	@Test
 	public void privateBalanceAndPositionChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, Object>> channelList = new ArrayList<>();
+		List<Map<String, Object>> channelList = new ArrayList<Map<String, Object>>();
 		Map<String, Object> orderMap = new HashMap<String, Object>(16);
 
 		orderMap.put("channel", "balance_and_position");
@@ -113,7 +113,7 @@ public class PrivateChannelTests {
 	@Test
 	public void privateOrderChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, Object>> channelList = new ArrayList<>();
+		List<Map<String, Object>> channelList = new ArrayList<Map<String, Object>>();
 		Map<String, Object> orderMap = new HashMap<String, Object>(16);
 
 		orderMap.put("channel", "orders");
@@ -139,7 +139,7 @@ public class PrivateChannelTests {
 	@Test
 	public void privateAlgoOrdersChannel() {
 		// 添加订阅频道
-		ArrayList<Map<String, Object>> channelList = new ArrayList<>();
+		List<Map<String, Object>> channelList = new ArrayList<Map<String, Object>>();
 		Map<String, Object> algoOrders = new HashMap<String, Object>(16);
 
 		algoOrders.put("channel", "orders-algo");
@@ -164,7 +164,7 @@ public class PrivateChannelTests {
 	 */
 	@Test
 	public void unsubscribeChannel() {
-		ArrayList<Map<String, Object>> channelList = new ArrayList<>();
+		List<Map<String, Object>> channelList = new ArrayList<Map<String, Object>>();
 
 		Map<String, Object> map = new HashMap<String, Object>(16);
 		map.put("channel", "balance_and_position");

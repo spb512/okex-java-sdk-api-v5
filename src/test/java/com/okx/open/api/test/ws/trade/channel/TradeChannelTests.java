@@ -3,6 +3,7 @@ package com.okx.open.api.test.ws.trade.channel;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.After;
@@ -39,7 +40,7 @@ public class TradeChannelTests {
 	@Test
 	public void wsPlaceOrder() {
 
-		ArrayList<Map<String, Object>> placeOrder = new ArrayList<>();
+		List<Map<String, Object>> placeOrder = new ArrayList<Map<String, Object>>();
 		Map<String, Object> order = new HashMap<String, Object>(16);
 
 		order.put("instId", "LTC-USDT-SWAP");
@@ -73,7 +74,7 @@ public class TradeChannelTests {
 	@Test
 	public void wsPlaceMultipleOrders() {
 
-		ArrayList<Map<String, Object>> placeMultipleOrders = new ArrayList<>();
+		List<Map<String, Object>> placeMultipleOrders = new ArrayList<Map<String, Object>>();
 		Map<String, Object> order1 = new HashMap<String, Object>(16);
 
 		order1.put("instId", "BTC-USDT");
@@ -125,7 +126,7 @@ public class TradeChannelTests {
 	@Test
 	public void wsCancelOrder() {
 
-		ArrayList<Map<String, Object>> cancelOrder = new ArrayList<>();
+		List<Map<String, Object>> cancelOrder = new ArrayList<Map<String, Object>>();
 		Map<String, Object> order = new HashMap<String, Object>(16);
 
 		order.put("instId", "BTC-USDT");
@@ -150,7 +151,7 @@ public class TradeChannelTests {
 	@Test
 	public void wsCancelMultipleOrders() {
 
-		ArrayList<Map<String, Object>> cancelOrder = new ArrayList<>();
+		List<Map<String, Object>> cancelOrder = new ArrayList<Map<String, Object>>();
 		Map<String, Object> order1 = new HashMap<String, Object>(16);
 
 		order1.put("instId", "BTC-USDT");
@@ -182,7 +183,7 @@ public class TradeChannelTests {
 	@Test
 	public void wsAmendOrder() {
 
-		ArrayList<Map<String, Object>> cancelOrder = new ArrayList<>();
+		List<Map<String, Object>> cancelOrder = new ArrayList<Map<String, Object>>();
 		Map<String, Object> order = new HashMap<String, Object>(16);
 
 		order.put("instId", "BTC-USDT");
@@ -211,7 +212,7 @@ public class TradeChannelTests {
 	@Test
 	public void wsAmendMultipleOrders() {
 
-		ArrayList<Map<String, Object>> cancelOrder = new ArrayList<>();
+		List<Map<String, Object>> cancelOrder = new ArrayList<Map<String, Object>>();
 		Map<String, Object> order1 = new HashMap<String, Object>(16);
 
 		order1.put("instId", "BTC-USDT");

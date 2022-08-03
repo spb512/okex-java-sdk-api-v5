@@ -1,7 +1,6 @@
 package com.okx.open.api.test.ws.trade.channel.config;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
@@ -38,12 +37,6 @@ public class WebSocketClient {
 	private static Boolean flag = true;
 	private static Boolean isConnect = false;
 	private static String sign;
-//	private final static HashFunction crc32 = Hashing.crc32();
-//	private static Map<String, Optional<SpotOrderBook>> bookMap = new HashMap<>();
-//	private static Logger logger = Logger.getLogger(TradeChannelTest.class);
-
-	public WebSocketClient() {
-	}
 
 	/**
 	 * 与服务器建立连接，参数为服务器的URL
@@ -144,15 +137,6 @@ public class WebSocketClient {
 		return hash;
 	}
 
-	private static String listToJson(List<Map<String, Object>> list) {
-		List<Map<String, Object>> mapList = new ArrayList<>();
-		for (Map<String, Object> map : list) {
-			mapList.add(map);
-		}
-		String jsonString = JSON.toJSONString(mapList);
-		return jsonString;
-	}
-
 	/**
 	 * 登录
 	 * 
@@ -179,7 +163,7 @@ public class WebSocketClient {
 	 * @param id
 	 */
 	public static void wsPlaceOrder(List<Map<String, Object>> list, String id) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"id\": \"" + id + "\",\"op\": \"order\", \"args\":" + s + "}";
 
 		if (null != webSocket) {
@@ -196,7 +180,7 @@ public class WebSocketClient {
 	 * @param id
 	 */
 	public static void wsPlaceMultipleOrders(List<Map<String, Object>> list, String id) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"id\": \"" + id + "\",\"op\": \"batch-orders\", \"args\":" + s + "}";
 
 		if (null != webSocket) {
@@ -211,7 +195,7 @@ public class WebSocketClient {
 	 * @param id
 	 */
 	public static void wsCancelOrder(List<Map<String, Object>> list, String id) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"id\": \"" + id + "\",\"op\": \"cancel-order\", \"args\":" + s + "}";
 
 		if (null != webSocket) {
@@ -226,7 +210,7 @@ public class WebSocketClient {
 	 * @param id
 	 */
 	public static void wsCancelMultipleOrders(List<Map<String, Object>> list, String id) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"id\": \"" + id + "\",\"op\": \"batch-cancel-orders\", \"args\":" + s + "}";
 
 		if (null != webSocket) {
@@ -241,7 +225,7 @@ public class WebSocketClient {
 	 * @param id
 	 */
 	public static void wsAmendOrder(List<Map<String, Object>> list, String id) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"id\": \"" + id + "\",\"op\": \"amend-order\", \"args\":" + s + "}";
 
 		if (null != webSocket) {
@@ -256,7 +240,7 @@ public class WebSocketClient {
 	 * @param id
 	 */
 	public static void wsAmendMultipleOrders(List<Map<String, Object>> list, String id) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"id\": \"" + id + "\",\"op\": \"batch-amend-orders\", \"args\":" + s + "}";
 
 		if (null != webSocket) {

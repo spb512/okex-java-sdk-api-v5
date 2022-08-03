@@ -1,7 +1,6 @@
 package com.okx.open.api.test.ws.privates.channel.config;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
@@ -38,12 +37,6 @@ public class WebSocketClient {
 	private static Boolean flag = true;
 	private static Boolean isConnect = false;
 	private static String sign;
-//	private final static HashFunction crc32 = Hashing.crc32();
-//	private static Map<String, Optional<SpotOrderBook>> bookMap = new HashMap<>();
-//	private static Logger logger = Logger.getLogger(PrivateChannelTest.class);
-
-	public WebSocketClient() {
-	}
 
 	/**
 	 * 与服务器建立连接，参数为服务器的URL
@@ -143,15 +136,6 @@ public class WebSocketClient {
 		return hash;
 	}
 
-	private static String listToJson(List<Map<String, Object>> list) {
-		List<Map<String, Object>> mapList = new ArrayList<>();
-		for (Map<String, Object> map : list) {
-			mapList.add(map);
-		}
-		String jsonString = JSON.toJSONString(mapList);
-		return jsonString;
-	}
-
 	/**
 	 * 登录
 	 * 
@@ -175,7 +159,7 @@ public class WebSocketClient {
 	 * @param list
 	 */
 	public static void subscribe(List<Map<String, Object>> list) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"op\": \"subscribe\", \"args\":" + s + "}";
 
 		if (null != webSocket) {
@@ -189,7 +173,7 @@ public class WebSocketClient {
 	 * @param list
 	 */
 	public static void unsubscribe(List<Map<String, Object>> list) {
-		String s = listToJson(list);
+		String s = JSON.toJSONString(list);
 		String str = "{\"op\": \"unsubscribe\", \"args\":" + s + "}";
 		if (null != webSocket) {
 			sendMessage(str);
