@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.okx.open.api.test.ws.publics.channel.config.WebSocketClient;
 import com.okx.open.api.test.ws.publics.channel.config.WebSocketConfig;
@@ -25,13 +25,13 @@ public class PublicChannelTests {
 
 //	private static Logger logger = Logger.getLogger(PublicChannelTest.class);
 
-	@Before
+	@BeforeEach
 	public void connect() {
 		// 与服务器建立连接
 		WebSocketConfig.publicConnect(WEBSOCKET_CLIENT);
 	}
 
-	@After
+	@AfterEach
 	public void close() {
 		System.out.println(Instant.now().toString() + "Public channels close connect!");
 		WebSocketClient.closeConnection();

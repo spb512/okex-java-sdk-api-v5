@@ -1,7 +1,7 @@
 package com.okx.open.api.test.sub.account;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +25,7 @@ public class SubAccountApiTests extends SubAccountApiBaseTest {
 
 	private SubAccountApiService subAccountApiService;
 
-	@Before
+	@BeforeEach
 	public void before() {
 		this.config = this.config();
 		this.subAccountApiService = new SubAccountApiServiceImpl(this.config);

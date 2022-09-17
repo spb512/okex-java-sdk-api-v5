@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.okx.open.api.test.ws.privates.channel.config.WebSocketClient;
 import com.okx.open.api.test.ws.privates.channel.config.WebSocketConfig;
@@ -22,13 +22,13 @@ import com.okx.open.api.test.ws.privates.channel.config.WebSocketConfig;
 public class PrivateChannelTests {
 	private static final WebSocketClient WEBSOCKET_CLIENT = new WebSocketClient();
 
-	@Before
+	@BeforeEach
 	public void connect() {
 		WebSocketConfig.loginConnect(WEBSOCKET_CLIENT);
 
 	}
 
-	@After
+	@AfterEach
 	public void close() {
 		System.out.println(Instant.now().toString() + "Private channels close connect!");
 		WebSocketClient.closeConnection();

@@ -22,7 +22,7 @@ public interface PublicDataApi {
 	 * @return
 	 */
 	@GET("/api/v5/public/instruments")
-	Call<JSONObject> getInstruments(@Query("instType") String instType, @Query("uly") String uly);
+	Call<JSONObject> getInstruments(@Query("instType") String instType, @Query("uly")String uly, @Query("instId")String instId);
 
 	/**
 	 * 获取交割和行权记录 Get Delivery/Exercise History

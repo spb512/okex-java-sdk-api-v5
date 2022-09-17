@@ -24,8 +24,8 @@ public class PublicDataApiServiceImpl implements PublicDataApiService {
 	 * 获取交易产品基础信息 Get Instruments
 	 */
 	@Override
-	public JSONObject getInstruments(String instType, String uly) {
-		return this.client.executeSync(this.api.getInstruments(instType, uly));
+	public JSONObject getInstruments(String instType, String uly, String instId) {
+		return this.client.executeSync(this.api.getInstruments(instType, uly, instId));
 	}
 
 	/**

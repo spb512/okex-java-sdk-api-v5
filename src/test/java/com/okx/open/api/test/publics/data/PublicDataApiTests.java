@@ -1,7 +1,7 @@
 package com.okx.open.api.test.publics.data;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +20,7 @@ public class PublicDataApiTests extends PublicDataApiBaseTest {
 
 	private PublicDataApiService publicDataApiService;
 
-	@Before
+	@BeforeEach
 	public void before() {
 		config = config();
 		publicDataApiService = new PublicDataApiServiceImpl(config);
@@ -31,7 +31,7 @@ public class PublicDataApiTests extends PublicDataApiBaseTest {
 	 */
 	@Test
 	public void getInstruments() {
-		JSONObject result = publicDataApiService.getInstruments("SWAP", null);
+		JSONObject result = publicDataApiService.getInstruments("SWAP",null, "ETH-USDT-SWAP");
 		toResultString(logger, "result", result);
 
 	}

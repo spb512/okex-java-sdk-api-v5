@@ -1,7 +1,7 @@
 package com.okx.open.api.test.status;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +20,7 @@ public class StatusDataApiTest extends StatusDataApiBaseTest {
 	Logger logger = LoggerFactory.getLogger(getClass());
 	private StatusDataApiService statusDataApiService;
 
-	@Before
+	@BeforeEach
 	public void before() {
 		config = config();
 		statusDataApiService = new StatusDataApiServiceImpl(config);

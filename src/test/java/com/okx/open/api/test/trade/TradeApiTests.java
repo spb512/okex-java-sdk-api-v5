@@ -3,8 +3,8 @@ package com.okx.open.api.test.trade;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +28,7 @@ public class TradeApiTests extends TradeApiBaseTest {
 	Logger logger = LoggerFactory.getLogger(getClass());
 	private TradeApiService tradeApiService;
 
-	@Before
+	@BeforeEach
 	public void before() {
 		config = config();
 		tradeApiService = new TradeApiServiceImpl(config);

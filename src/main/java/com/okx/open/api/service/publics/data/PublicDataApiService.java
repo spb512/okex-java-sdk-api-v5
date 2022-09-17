@@ -17,7 +17,7 @@ public interface PublicDataApiService {
 	 * @param uly
 	 * @return
 	 */
-	JSONObject getInstruments(String instType, String uly);
+	JSONObject getInstruments(String instType, String uly, String instId);
 
 	/**
 	 * 获取交割和行权记录 Get Delivery/Exercise History
